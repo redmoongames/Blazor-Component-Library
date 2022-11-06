@@ -1,0 +1,22 @@
+@inherits ElementsLib.Texts.RedmoonComponentBase
+
+<div class="title" style="@MainComponentStyles">
+    @if (TextField != null)
+    {
+        <h3 class="title__text" style="@TextField.MainModelStyles">
+            @TextField.Text
+        </h3>
+    }
+    else
+    {
+        <h3>
+            Default Text...
+        </h3>     
+    }
+    
+</div>
+
+@code {
+    [Parameter]
+    public TextModel? TextField { get; set; }
+}

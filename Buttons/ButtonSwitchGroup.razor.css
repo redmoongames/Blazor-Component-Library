@@ -1,0 +1,42 @@
+
+.button-group {
+    margin: auto;
+}
+
+.button-group__header {
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 1.6em;
+}
+
+.button-group__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button-group__button:not(:first-child){
+    height: 80px;
+}
+
+.button-group__button {
+    width: 200px;
+    margin-top: 25px;
+}
+
+@media only screen and (max-width: 720px) {
+    .button-group {
+        width: 90%;
+    }
+    
+    .button-group__buttons {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .button-group__button {
+        width: 100%;
+    }
+}

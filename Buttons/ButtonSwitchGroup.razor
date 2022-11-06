@@ -1,0 +1,25 @@
+@using ElementsLib.Buttons.Models
+@inherits ElementsLib.Texts.RedmoonComponentBase
+
+<div class="button-group" style=" @MainComponentStyles">
+    <div class="button-group__buttons">
+        @foreach (var button in Buttons)
+        {
+            <div class="button-group__button">
+                <Button
+                    ButtonModel="@button"
+                    Height="80"/>
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+
+
+    public Button SellectedButton { get; set; }
+    
+    [Parameter]
+    public List<ButtonGraphicModel> Buttons { get; set; }
+}

@@ -1,0 +1,45 @@
+
+<header class="header">
+    <nav>
+        <ul class="header__links">
+            <li>
+                <a href="https://localhost">
+                    Build your PC
+                </a>
+            </li>
+            <li>
+                <a href="https://localhost">
+                    Rewievs
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class=" ">
+        <img class="img-fluid mx-auto" src="@LogoImageSource" alt="Company logo">
+    </div>
+    
+    <nav>
+        <ul class="d-flex flex-row-reverse align-items-center">
+            <li>
+                <a href="https://localhost">
+                    Supprt
+                </a>
+            </li>
+            <li>
+                <a href="https://localhost">
+                    About Us
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="header__additional-right-part">
+                
+    </div>
+</header>
+
+@code {
+    [Parameter]
+    public string? LogoImageSource { get; set; }
+}

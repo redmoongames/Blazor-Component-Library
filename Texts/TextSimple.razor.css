@@ -1,0 +1,16 @@
+.text-simple {
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.text-simple__header {
+    letter-spacing: -0.1em;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.text-simple__text-field {
+    font-size: 0.9em;
+    margin: 0;
+}

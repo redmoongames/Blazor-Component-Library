@@ -1,0 +1,22 @@
+<div class="price-holder">
+    <div class="price-holder__column">
+        <span class="price-holder__price evogria h2">@PriceA</span>
+        <span class="price-holder__description">@TextA</span>
+    </div>
+    <div class="price-holder__column">
+        <span class="price-holder__price evogria h2">@PriceB</span>
+        <span class="price-holder__description">@TextB</span>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string? TextA { get; set; } = "Default";
+    [Parameter]
+    public string? PriceA { get; set; } = "Default";
+    [Parameter]
+    public string? TextB { get; set; } = "Default";
+    [Parameter]
+    public string? PriceB { get; set; } = "Default";
+}
