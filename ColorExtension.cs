@@ -1,8 +1,7 @@
+using System.Drawing;
 using System.Globalization;
 
 namespace ElementsLib;
-
-using System.Drawing;
 
 public static class ColorExtension
 {
@@ -11,11 +10,11 @@ public static class ColorExtension
         //Remove # if present
         if (hexColor.IndexOf('#') != -1)
             hexColor = hexColor.Replace("#", "");
- 
-        int red = 0;
-        int green = 0;
-        int blue = 0;
- 
+
+        var red = 0;
+        var green = 0;
+        var blue = 0;
+
         if (hexColor.Length == 6)
         {
             //#RRGGBB
@@ -26,11 +25,11 @@ public static class ColorExtension
         else if (hexColor.Length == 3)
         {
             //#RGB
-            red = int.Parse(hexColor[0].ToString() + hexColor[0].ToString(), NumberStyles.AllowHexSpecifier);
-            green = int.Parse(hexColor[1].ToString() + hexColor[1].ToString(), NumberStyles.AllowHexSpecifier);
-            blue = int.Parse(hexColor[2].ToString() + hexColor[2].ToString(), NumberStyles.AllowHexSpecifier);
+            red = int.Parse(hexColor[0] + hexColor[0].ToString(), NumberStyles.AllowHexSpecifier);
+            green = int.Parse(hexColor[1] + hexColor[1].ToString(), NumberStyles.AllowHexSpecifier);
+            blue = int.Parse(hexColor[2] + hexColor[2].ToString(), NumberStyles.AllowHexSpecifier);
         }
- 
+
         return Color.FromArgb(red, green, blue);
     }
 }
