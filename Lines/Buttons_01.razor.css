@@ -1,10 +1,43 @@
 
 .buttons_01 {
-    height: 100px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .buttons_01__item {
+    height: 80px;
+    width: 30%;
+    color: white;
+    font-size: 1.7em;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+.buttons_01__item:hover {
+    text-shadow: 0 0 10px white;
+    transition: all 0.1s ease-in;
     
+    border: 2px solid white;
+    box-shadow: 0 0 10px #00cce7, 0 0 10px #fff;
+}
+
+.buttons_01__item .selected {
+    border: 2px solid white;
+    text-shadow: 0 0 10px white;
+    box-shadow: 0 0 10px #00cce7, 0 0 10px #fff;
+}
+
+
+@media only screen and (max-width: 640px) {
+    .buttons_01 {
+        flex-direction: column;
+        margin: 2%;
+    }
+    .buttons_01__item {
+        width: 100%;
+        margin-bottom: 12px;
+        height: 60px;
+    }
 }

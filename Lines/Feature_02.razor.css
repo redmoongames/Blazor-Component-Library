@@ -11,27 +11,18 @@
 
 .feature_02__wrapper {
     margin: 0 1.25%;
-    padding: 50px 20px 40px;
+    padding: 40px 20px;
     position: relative;
     display: flex;
     flex-direction: column;
     flex-basis: fit-content;
+    justify-content: space-between;
     
     border: 2px solid #00cce7;
     border-radius: 10px;
     background: rgb(46,24,132);
     background: linear-gradient(15deg, rgba(46,24,132,1) 0%, rgba(138,78,196,1) 25%, rgba(137,79,196,1) 35%, rgba(70,169,231,1) 100%);
 
-}
-
-.feature_02__header {    
-    /*font-size: 2em;*/
-    /*line-height: 1.15;*/
-    margin-bottom: 15px;
-}
-
-.feature_02__description {
-    margin-bottom: 25px;
 }
 
 

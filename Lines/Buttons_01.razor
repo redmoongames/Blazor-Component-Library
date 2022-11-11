@@ -3,7 +3,7 @@
 @inherits ScaffoldingRenderElement
 
 <ScaffoldingRenderElement Child="this">
-    <div class="buttons_01">
+    <div class="buttons_01 evogria">
         @foreach(var button in Buttons)
         {
             <div class="buttons_01__item">
@@ -23,25 +23,4 @@
     [Parameter] public WebButtonModel Button1 { get; set; }
     [Parameter] public WebButtonModel Button2 { get; set; }
     [Parameter] public WebButtonModel Button3 { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Button1 = new WebButtonModel
-        {
-            Text = "Button1",
-            BackgroundColor = new WebColor("#170e31")
-        };
-        Button2 = new WebButtonModel
-        {
-            Text = "Button2",
-            BackgroundColor = new WebColor("#170e31")
-        };
-        Button3 = new WebButtonModel
-        {
-            Text = "Button3",
-            BackgroundColor = new WebColor("#170e31")
-        };
-        base.OnInitialized();
-    }
-
 }

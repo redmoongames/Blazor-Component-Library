@@ -10,28 +10,62 @@
 @inherits ScaffoldingRenderElement
 
 <ScaffoldingRenderElement Child="this">
-    <div class="pc-info">
-        @* <div class="pc-info__left-part"> *@
-        @*          *@
-        @*     <BigImage ImageSource="../img/pc-preview.png" ImageDescription="Computer Image"/> *@
-        @*          *@
-        @*     <PolaroidContainer> *@
-        @*         <TwoColomnPrice *@
-        @*             PriceA="฿ 6,900" TextA="Build fee" *@
-        @*             PriceB="฿ 76,000" TextB="Component costs"/> *@
-        @*         <TextSimple *@
-        @*             Header="@(new TextModel(content: "฿ 73,900", hexColor: "#007bed"))" *@
-        @*             TextField="@(new TextModel("Total Price"))" *@
-        @*             TextAlign="TextAlign.Center" /> *@
-        @*     </PolaroidContainer> *@
-        @*          *@
-        @* </div> *@
-        @* <div class="pc-info__right-part"> *@
-        @*     <ShopList  *@
-        @*         Items="@(ConvertToListItems(new ShopItemsRepository().Load()))"  *@
-        @*         SpacingBottom="50"/> *@
-        @* </div> *@
+    <div class="shopping_cart_01">
+        
+        <div class="shopping_cart_01__left_part">
+            <div class="shopping_cart_01__image">
+                <div class="image">
+                    <img src="//cdn.shopify.com/s/files/1/0408/5792/7834/files/01_-_Main_-_Liquid_Cooled-removebg-preview.png?v=1614370269" alt="">
+                </div>
+            </div>
+            <div class="shopping_cart_01__price">
+                <Title_01 TextField=@("999 THB") />
+                @* <div class="price">999 THB</div> *@
+            </div>
+            
+        </div>
+        
+        <div class="shopping_cart_01__right_part">
+            @* <h3>Items for your PC:</h3> *@
+            <div class="cart_list">
+                @for (int i = 0; i < 12; i++)
+                {
+                    <div class="cart_list__item">
+                        <img src="https://cdn.shopify.com/s/files/1/0408/5792/7834/products/pic-intel_e34c06ef-5e32-4f23-b70b-631b1c69afc3.png?v=1662507434" alt="">
+                        <span class="cart_list__description">INTEL CORE I7-12700F 12-CORE</span>
+                        <span class="cart_list__price">$339</span>
+                    </div>
+                }
+            </div>
+            <div class="recommendations"></div>
+        </div>
+        
+        <div class="shopping_cart_01__background">
+            <div class="background__left"></div>
+            <div class="background__right"></div>
+        </div>
     </div>
+        @*  <div class="shopping_cart_01"> *@
+        @*   *@
+        @*      <BigImage ImageSource="../img/pc-preview.png" ImageDescription="Computer Image"/> *@
+        @*   *@
+        @*      <PolaroidContainer> *@
+        @*          <TwoColomnPrice *@
+        @*              PriceA="฿ 6,900" TextA="Build fee" *@
+        @*              PriceB="฿ 76,000" TextB="Component costs"/> *@
+        @*          <TextSimple *@
+        @*              Header="@(new TextModel(content: "฿ 73,900", hexColor: "#007bed"))" *@
+        @*              TextField="@(new TextModel("Total Price"))" *@
+        @*              TextAlign="TextAlign.Center" /> *@
+        @*      </PolaroidContainer> *@
+        @*   *@
+        @*  </div> *@
+        @*  <div class="pc-info__right-part"> *@
+        @*      <ShopList *@
+        @*          @* Items="@(ConvertToListItems(new ShopItemsRepository().Load()))" *@
+        @*          SpacingBottom="50"/> *@
+        @*  </div> *@
+    
 </ScaffoldingRenderElement>
 
 

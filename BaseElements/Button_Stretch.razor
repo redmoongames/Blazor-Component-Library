@@ -1,11 +1,36 @@
 @using ElementsLib.Models
 
-<ul>
-    <li style="@Button.WebStyles">
-        <a href="@Button.Reference" style="@Button.Text.Styles">@Button.Text</a>
-    </li>
-</ul>
+<a @onclick="ButtonClick" href="@Button.Reference" class="button_stretch" style="@Button.WebStyles @_styles">
+    <span class="button_stretch__text" style="@Button.Text.Styles">
+        @Button.Text
+    </span>
+    @if (Button.BackgroundImage != null)
+    {
+        <div class="button_stretch__image">
+            <img src=@(Button.BackgroundImage) alt="">
+        </div>
+    }
+</a>
 
 @code {
+
+    private void ButtonClick()
+    {
+        Button.Action?.Invoke();
+    }
+    
     [Parameter] public WebButtonModel Button { get; set; }
+    
+    /// By default is height = 100% 
+    [Parameter] public WebSize? Height { get; set; }
+    
+    private string _styles 
+    {
+        get
+        {
+            var returnString = "";
+            returnString += Height != null ? $"height: {Height}; " : "";
+            return returnString;
+        }
+    }
 }

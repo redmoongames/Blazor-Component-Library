@@ -64,7 +64,7 @@ public class WebText : ITextModel
     public WebSize? Size { get; set; }
     public WebColor? Color { get; set; }
     public string? FontWeight { get; set; }
-    public string? FontName { get; set; }
+    public string? FontFamily { get; set; }
 
     private string GetStyles()
     {
@@ -72,7 +72,7 @@ public class WebText : ITextModel
         returnString += Size != null ? $"font-size: {Size}; " : "";
         returnString += Color != null ? $"color: {Color.Hex}; " : "";
         returnString += FontWeight != null ? $"font-weight: {FontWeight};" : "";
-        returnString += FontName != null ? $"font-family: {FontName};" : "";
+        returnString += FontFamily != null ? $"font-family: {FontFamily};" : "";
         return returnString;
     }
     

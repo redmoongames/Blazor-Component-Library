@@ -7,5 +7,5 @@ public interface ITextModel
     string Content { get; set; }
     WebSize? Size { get; set; }
     WebColor? Color { get; set; }
-    string? FontName { get; set; }
+    string? FontFamily { get; set; }
 }

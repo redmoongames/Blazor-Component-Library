@@ -7,19 +7,22 @@
         @foreach (var item in Items)
         {
             <div class="feature_02__wrapper">
-                <div class="feature_02__header evogria">
-                    <Text_Title 
-                        Content="@item.Header.Content" 
-                        HeadlineType="Text_Title.Headline.H3" />
+                <div>
+                    <Text_Title
+                        Text="@item.Header.Content"
+                        HeadlineType="Text_Title.Headline.H3"
+                        MarginBottom="@(new WebSizePx(15))"
+                        FontName="evogria" />
+                    
+                    <Text_Block
+                        Text="@item.TextField"
+                        MarginBottom="@(new WebSizePx(25))"/>
                 </div>
                 
-                <div class="feature_01__description" style="@item.TextField.Styles">
-                    <Text_Block 
-                        Content="@item.TextField.Content" 
-                        MarginBottom="@(new WebSizePx(25))" />
-                </div>
-                    
-                <Button_Stretch Button=@item.Button />
+
+                <Button_Stretch
+                    Button=@item.Button
+                    Height="new WebSizePx(55)"/>
             </div>
         }
     </div>
