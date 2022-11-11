@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace ElementsLib;
+namespace ElementsLib.Models;
 
 public class TextModel
 {
@@ -14,7 +14,7 @@ public class TextModel
         FontSizeEm = fontSizeEm;
     }
 
-    public string MainModelStyles => GetMainModelStyles();
+    public string Styles => GetMainModelStyles();
 
     public string? HexColor
     {

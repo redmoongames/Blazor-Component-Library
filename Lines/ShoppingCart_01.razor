@@ -1,0 +1,40 @@
+@using ElementsLib.BaseElements
+@using ElementsLib.AllElements.Containers
+@using ElementsLib.AllElements.Gallary
+@using ElementsLib.AllElements.Lists
+@using ElementsLib.AllElements.Texts
+@using ElementsLib.AllElements.Buttons
+@using ElementsLib.AllElements.Models
+@using ElementsLib.AllElements
+@using ElementsLib.Models
+@inherits ScaffoldingRenderElement
+
+<ScaffoldingRenderElement Child="this">
+    <div class="pc-info">
+        @* <div class="pc-info__left-part"> *@
+        @*          *@
+        @*     <BigImage ImageSource="../img/pc-preview.png" ImageDescription="Computer Image"/> *@
+        @*          *@
+        @*     <PolaroidContainer> *@
+        @*         <TwoColomnPrice *@
+        @*             PriceA="฿ 6,900" TextA="Build fee" *@
+        @*             PriceB="฿ 76,000" TextB="Component costs"/> *@
+        @*         <TextSimple *@
+        @*             Header="@(new TextModel(content: "฿ 73,900", hexColor: "#007bed"))" *@
+        @*             TextField="@(new TextModel("Total Price"))" *@
+        @*             TextAlign="TextAlign.Center" /> *@
+        @*     </PolaroidContainer> *@
+        @*          *@
+        @* </div> *@
+        @* <div class="pc-info__right-part"> *@
+        @*     <ShopList  *@
+        @*         Items="@(ConvertToListItems(new ShopItemsRepository().Load()))"  *@
+        @*         SpacingBottom="50"/> *@
+        @* </div> *@
+    </div>
+</ScaffoldingRenderElement>
+
+
+@code {
+    
+}

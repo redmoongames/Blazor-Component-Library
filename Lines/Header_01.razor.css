@@ -1,0 +1,139 @@
+.header {
+    width: 100%;
+    height: 80px;
+    display: table;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: table;
+    height: inherit;
+    z-index: 100;
+}
+
+.header__left {
+    padding-left: 20px;
+    padding-right: 50px;
+    text-align: left;
+}
+
+.header__right {
+    padding-right: 20px;
+    padding-left: 50px;
+    text-align: right;
+    right: 0;
+}
+
+.header__left, .header__right {
+    width: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    height: 100%;
+}
+
+.logo {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    z-index: 100;
+}
+
+.logo a {
+    display: block;
+}
+
+.menu_items {
+    display: inline-table;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.menu_items ul {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.menu_items li {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0px;
+    color: #000000;
+    white-space: nowrap;
+}
+
+a { 
+    color: inherit;
+    margin: 0 auto;
+}
+
+.header__burger {
+    display: none;
+    margin-left: 25px;
+    /*width: 50px;*/
+    /*height: 50px;*/
+    /*background-color: red;*/
+}
+
+img {
+    max-width: inherit;
+    width: 100%;
+}
+
+@media only screen and (max-width: 960px) {
+    
+    .header__logo {
+        position: relative;
+        display: table;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    
+    .logo {
+        display: block;
+        position: static;
+    }
+    
+    img {
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .header__right, .header__left {
+        position: static;
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    .header__right, .header__left .menu_items {
+        height: initial;
+    }
+    
+    .menu_items, .menu_items ul {
+        display: block;
+    }
+    
+    .menu_items li {
+        display: block;
+        text-align: center;
+        padding: 10px !important;
+        white-space: normal;
+    }
+
+    .header__burger {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

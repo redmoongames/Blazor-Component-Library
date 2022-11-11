@@ -1,12 +1,13 @@
 @inherits RedmoonBaseModel
 @using ElementsLib.BaseElements
+@using ElementsLib.Models
 
 <ScaffoldingRenderElement Child="@(this)">
     <div class="title">
         @if (TextField != null)
         {
-            <h3 class="title__text" style="@TextField.MainModelStyles">
-                @TextField.Text
+            <h3 class="title__text" style="@TextField.Styles">
+                @TextField.Content
             </h3>
         }
         else
@@ -19,7 +20,7 @@
 
 @code
 {
-    [Parameter] public TextModel? TextField { get; set; } = "Text Field";
+    [Parameter] public WebText? TextField { get; set; } = "Text Field";
     public override string ElementName { get; set; } = "Title_01";
     public override TextAlign GlobalTextAlign { get; set; } = TextAlign.Center;
 }

@@ -1,0 +1,35 @@
+@using ElementsLib.BaseElements
+@using ElementsLib.Models
+@inherits ScaffoldingRenderElement
+
+
+<ScaffoldingRenderElement Child="this">
+    
+    <div class="page_cover evogria" style="height: @(Height)vh">
+        <div class="page_cover__content t-container">
+            <div class="content t-col_100">
+                <div class="content__header">
+                    <h2>
+                        @(Header) <br/>
+                        <small>@(WebTextField)</small>
+                    </h2>
+                </div>
+                <div class="content__buttons">
+                    <ButtonGroup_Inline Buttons="Buttons" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ScaffoldingRenderElement>
+
+
+@code {
+
+    [Parameter] public int Height { get; set; } = 60;
+    [Parameter] public WebText Header { get; set; } = "Header";
+    [Parameter] public WebText WebTextField { get; set; } = "Text field width content";
+    [Parameter] public List<WebButtonModel> Buttons { get; set; }
+    
+
+}

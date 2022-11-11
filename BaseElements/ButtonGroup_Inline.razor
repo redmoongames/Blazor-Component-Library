@@ -1,0 +1,15 @@
+@using ElementsLib.Models
+
+<ul>
+    @foreach (var button in Buttons)
+    {
+        <li style="@button.WebStyles">
+            <a href="@button.Reference" style="@button.Text.Styles">@button.Text</a>
+        </li>
+    }
+</ul>
+
+@code {
+    [Parameter] public WebSize? MaxHeight { get; set; }
+    [Parameter] public List<WebButtonModel> Buttons { get; set; }
+}

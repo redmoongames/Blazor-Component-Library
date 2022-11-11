@@ -1,0 +1,26 @@
+@using ElementsLib.Models
+
+<p style="@_customStyles">@Content</p>
+
+@code {
+    [Parameter] public string Content { get; set; }
+    [Parameter] public WebSize? MarginTop { get; set; }
+    [Parameter] public WebSize? MarginBottom { get; set; }
+    [Parameter] public TextAlign Align { get; set; }
+    [Parameter] public WebSize? Size { get; set; }
+    [Parameter] public WebColor? Color { get; set; }
+    [Parameter] public string? FontWeight { get; set; }
+    [Parameter] public string? FontName { get; set; }
+
+    private string _customStyles
+    {
+        get
+        {
+            var returnString = "";
+            returnString += MarginTop != null ? $"margin-top: {MarginTop}; " : "";
+            returnString += MarginBottom != null ? $"margin-bottom: {MarginBottom}; " : "";
+            return returnString;
+        }
+    }
+
+}

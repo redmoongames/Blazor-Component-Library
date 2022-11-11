@@ -1,4 +1,4 @@
-namespace ElementsLib.BaseElements;
+namespace ElementsLib.Models;
 
 public enum TextAlign
 {

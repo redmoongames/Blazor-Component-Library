@@ -34,3 +34,4 @@ public class ExampleJsInterop : IAsyncDisposable
         return await module.InvokeAsync<string>("showPrompt", message);
     }
 }
+

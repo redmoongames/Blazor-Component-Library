@@ -1,0 +1,51 @@
+@using ElementsLib.BaseElements
+@using ElementsLib.Models
+@inherits ScaffoldingRenderElement
+
+<ScaffoldingRenderElement Child="this">
+    <div class="feature_02">
+        @foreach (var item in Items)
+        {
+            <div class="feature_02__wrapper">
+                <div class="feature_02__header evogria">
+                    <Text_Title 
+                        Content="@item.Header.Content" 
+                        HeadlineType="Text_Title.Headline.H3" />
+                </div>
+                
+                <div class="feature_01__description" style="@item.TextField.Styles">
+                    <Text_Block 
+                        Content="@item.TextField.Content" 
+                        MarginBottom="@(new WebSizePx(25))" />
+                </div>
+                    
+                <Button_Stretch Button=@item.Button />
+            </div>
+        }
+    </div>
+</ScaffoldingRenderElement>
+
+
+@code {
+
+    
+    public override string? BackgroundColor { get; set; } = "#fff";
+
+    public List<Content> Items => new List<Content>
+    {
+        Feature1, Feature2, Feature3
+    };
+    
+    [Parameter] public Content Feature1 { get; set; }
+    [Parameter] public Content Feature2 { get; set; }
+    [Parameter] public Content Feature3 { get; set; }
+    
+    public class Content
+    {
+        public string ImageSource { get; set; }
+        public WebText Header { get; set; }
+        public WebText TextField { get; set; }
+        public WebButtonModel Button { get; set; }
+        public string PriceField { get; set; }
+    }
+}

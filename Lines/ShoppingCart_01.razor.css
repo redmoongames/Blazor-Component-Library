@@ -1,0 +1,36 @@
+
+
+.pc-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.pc-info__left-part {
+    background: #f0f0f0;
+    border-radius: 0 80px 80px 0;
+    box-shadow: 10px 10px 20px #00000040;
+    width: 45%;
+    padding-top: 60px;
+    padding-right: 20px;
+}
+
+.pc-info__right-part {
+    background: rgba(0,0,0,.3);
+    border: 1px solid white;
+    border-right: 0;
+    width: 40%;
+    padding: 60px 30px 50px 60px;
+    border-radius: 80px 0 0 80px;
+}
+
+@media only screen and (max-width: 720px) {
+    .pc-info__left-part {
+        width: 100%;
+    }
+
+    .pc-info__right-part {
+        width: 100%;
+    }
+}

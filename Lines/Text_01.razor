@@ -1,0 +1,28 @@
+@using ElementsLib.BaseElements
+@using ElementsLib.Models
+@inherits ScaffoldingRenderElement
+
+<ScaffoldingRenderElement Child="@(this)">
+    <div class="text-simple" >
+        <p class="text-simple__header evogria" style="@Header.Styles">
+            @Header
+        </p>
+        
+        <p class="text-simple__description" style="@TextField.Styles">
+            @TextField
+        </p>
+    </div>
+</ScaffoldingRenderElement>
+
+
+@code {
+
+    [Parameter] public TextModel Header { get; set; } = new("TextField");
+
+    [Parameter] public TextModel TextField { get; set; } = new("TextField");
+    
+    public override string ElementName { get; set; } = "Title_01";
+    
+    public override TextAlign GlobalTextAlign { get; set; } = TextAlign.Center;
+
+}

@@ -1,10 +1,11 @@
-namespace ElementsLib.BaseElements;
+namespace ElementsLib.Models;
 
 /// <summary>
 /// maximum width = col_12
 /// </summary>
 public enum ColumnWidth
 {
+    col_0,
     col_1,
     col_2,
     col_3,
@@ -16,7 +17,8 @@ public enum ColumnWidth
     col_9,
     col_10,
     col_11,
-    col_12
+    col_12,
+    col_100,
 }
 
 public static class ColumnTransformer
@@ -25,6 +27,7 @@ public static class ColumnTransformer
     {
         return columnWidth switch
         {
+            ColumnWidth.col_0 => "",
             ColumnWidth.col_1 => "t-col_1",
             ColumnWidth.col_2 => "t-col_2",
             ColumnWidth.col_3 => "t-col_3",
@@ -37,15 +40,16 @@ public static class ColumnTransformer
             ColumnWidth.col_10 => "t-col_10",
             ColumnWidth.col_11 => "t-col_11",
             ColumnWidth.col_12 => "t-col_12",
+            ColumnWidth.col_100 => "t-col_100",
             _ => throw new ArgumentOutOfRangeException(nameof(columnWidth), columnWidth, null)
         };
     }
 
     public static string LeftSpaceToClassName(ColumnWidth columnWidth)
     {
-        // .t-prefix_2
         return columnWidth switch
         {
+            ColumnWidth.col_0 => "",
             ColumnWidth.col_1 => "t-prefix_1",
             ColumnWidth.col_2 => "t-prefix_2",
             ColumnWidth.col_3 => "t-prefix_3",
@@ -58,6 +62,7 @@ public static class ColumnTransformer
             ColumnWidth.col_10 => "t-prefix_10",
             ColumnWidth.col_11 => "t-prefix_11",
             ColumnWidth.col_12 => "t-prefix_12",
+            ColumnWidth.col_100 => "t-prefix_100",
             _ => throw new ArgumentOutOfRangeException(nameof(columnWidth), columnWidth, null)
         };
     }

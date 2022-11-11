@@ -5,7 +5,7 @@
 }
 
 .text-simple__header {
-    letter-spacing: -0.1em;
+    /*letter-spacing: -0.1em;*/
     font-size: 2em;
     font-weight: 800;
 }

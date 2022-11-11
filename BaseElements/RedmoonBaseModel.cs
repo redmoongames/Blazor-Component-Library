@@ -1,5 +1,5 @@
+using ElementsLib.Models;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
 
 namespace ElementsLib.BaseElements;
 
@@ -14,17 +14,20 @@ public class RedmoonBaseModel : ComponentBase
     /// Fragment that should render inside ScaffoldingElement
     /// </summary>
     [Parameter] public RenderFragment ChildContent { get; set; }
-    
 
-    [Parameter] public ColumnWidth Width { get; set; }
-    [Parameter] public ColumnWidth LeftSpace { get; set; }
-    [Parameter] public int? SpacingTop { get; set; }
-    [Parameter] public int? SpacingBottom { get; set; }
+
+    [Parameter] public virtual ColumnWidth Width { get; set; } = ColumnWidth.col_100;
+    [Parameter] public virtual ColumnWidth LeftSpace { get; set; } = ColumnWidth.col_0;
+    [Parameter] public virtual int? SpacingTop { get; set; } = 45;
+    [Parameter] public virtual int? SpacingBottom { get; set; } = 45;
     
     /// <summary>
     /// Hex type color format, like: #fff or #ffffff
     /// </summary>
-    [Parameter] public string? BlockBackgroundColor { get; set; }
+    [Parameter] public virtual string? BackgroundColor { get; set; }
+    [Parameter] public virtual string? BackgroundFilterColor { get; set; }
+    [Parameter] public virtual string? BackgroundVideo { get; set; }
+    [Parameter] public virtual string? BackgroundImage { get; set; }
 
     [Parameter] public virtual TextAlign GlobalTextAlign { get; set; } = TextAlign.Left;
     /// <summary>
@@ -48,19 +51,20 @@ public class RedmoonBaseModel : ComponentBase
         returnString += SpacingBottom != null ? $"padding-bottom: {SpacingBottom}px; " : "";
         returnString += GlobalTextAlign != null ? $"text-align: {GlobalTextAlign}; " : "";
         returnString += GlobalTextColor != null ? $"color: {GlobalTextColor}; " : "";
-        returnString += BlockBackgroundColor != null ? $"background-color: {BlockBackgroundColor}; " : "";
+        returnString += BackgroundColor != null ? $"background-color: {BackgroundColor}; " : "";
         // returnString += MaxWidth != null ? $"max-width: {MaxWidth}px; " : "";
         return returnString;
     }
     
-    [Parameter] public string ScaffoldingClasses { get; set; } = "";
-    [Parameter] public string ScaffoldingStyles { get; set; } = "";
-    
-
-    protected override void OnInitialized()
+    [Parameter] public string ScaffoldingClasses
     {
-        ScaffoldingClasses = GetScaffoldingClasses();
-        ScaffoldingStyles = GetScaffoldingStyles();
-        base.OnInitialized();
+        get => GetScaffoldingClasses();
+        set => throw new NotImplementedException();
+    }
+
+    [Parameter] public string ScaffoldingStyles
+    {
+        get => GetScaffoldingStyles();
+        set => throw new NotImplementedException();
     }
 }

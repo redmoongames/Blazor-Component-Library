@@ -1,0 +1,47 @@
+@using ElementsLib.BaseElements
+@using ElementsLib.Models
+@inherits ScaffoldingRenderElement
+
+<ScaffoldingRenderElement Child="this">
+    <div class="buttons_01">
+        @foreach(var button in Buttons)
+        {
+            <div class="buttons_01__item">
+                <Button_Stretch Button="button" />
+            </div>
+        }
+    </div>
+</ScaffoldingRenderElement>
+
+@code {
+
+    public List<WebButtonModel> Buttons => new List<WebButtonModel>
+    {
+        Button1, Button2, Button3
+    };
+    
+    [Parameter] public WebButtonModel Button1 { get; set; }
+    [Parameter] public WebButtonModel Button2 { get; set; }
+    [Parameter] public WebButtonModel Button3 { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Button1 = new WebButtonModel
+        {
+            Text = "Button1",
+            BackgroundColor = new WebColor("#170e31")
+        };
+        Button2 = new WebButtonModel
+        {
+            Text = "Button2",
+            BackgroundColor = new WebColor("#170e31")
+        };
+        Button3 = new WebButtonModel
+        {
+            Text = "Button3",
+            BackgroundColor = new WebColor("#170e31")
+        };
+        base.OnInitialized();
+    }
+
+}
