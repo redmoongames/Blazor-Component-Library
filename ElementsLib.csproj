@@ -21,21 +21,4 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.10" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\redmoon.uno\ComputerCalculator\ComputerCalculator.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="AllElements\Buttons\BigButton.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Buttons\Button.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Buttons\ButtonSwitchGroup.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Containers\PolaroidContainer.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Footers\Footer1.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Gallary\BigImage.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Gallary\Carousel.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Lists\ShopList.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Texts\Text_01.razor" />
-      <_ContentIncludedByDefault Remove="AllElements\Texts\TwoColomnPrice.razor" />
-    </ItemGroup>
-
 </Project>

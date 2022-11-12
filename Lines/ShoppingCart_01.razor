@@ -1,87 +1,62 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@using ComputerCalculator
 @inherits ScaffoldingRenderElement
-@inject PcConfigurationService PCService
 
 <ScaffoldingRenderElement Child="this">
-    <div class="shopping_cart_01">
+     <div class="shopping_cart_01">
         
-        <div class="shopping_cart_01__left_part">
-            <div class="shopping_cart_01__image">
-                <div class="image">
-                    <img src="//cdn.shopify.com/s/files/1/0408/5792/7834/files/01_-_Main_-_Liquid_Cooled-removebg-preview.png?v=1614370269" alt="">
+            <div class="shopping_cart_01__left_part">
+                <div class="shopping_cart_01__image">
+                    <div class="image">
+                        <img src="//cdn.shopify.com/s/files/1/0408/5792/7834/files/01_-_Main_-_Liquid_Cooled-removebg-preview.png?v=1614370269" alt="">
+                    </div>
+                </div>
+                
+                <div class="shopping_cart_01__price">
+                    <Title_01 TextField=@(TotalPrice) />
+                </div>
+                
+                <div class="shopping_cart_01__button evogria">
+                    <Button_Stretch
+                        Height=@(new WebSizePx(80))
+                        Button=@(new WebButtonModel("ORDER") {BackgroundColor = new WebColor("#00C787")}) />
                 </div>
             </div>
-            <div class="shopping_cart_01__price">
-                <Title_01 TextField=@("999 THB") />
-                
-            </div>
-            <div class="shopping_cart_01__button evogria">
-                <Button_Stretch 
-                    Height=@(new WebSizePx(80)) 
-                    Button=@(new WebButtonModel("ORDER") {BackgroundColor = new WebColor("#00C787")}) />
-            </div>
-        </div>
         
-        <div class="shopping_cart_01__right_part">
-            <div class="cart_list">
-                @foreach (var item in _selectedConfig)
-                {
-                    <div class="cart_list__item">
-                        <img src=@item.ImageSource alt="">
-                        <span class="cart_list__description">@item.Description</span>
-                        <span class="cart_list__price">@item.Price</span>
-                    </div>
-                }
+            <div class="shopping_cart_01__right_part">
+                <div class="cart_list">
+                    @if (Items != null)
+                    {
+                        foreach (var item in Items)
+                        {
+                            <div class="cart_list__item">
+                                <img src=@item.ImageSource alt="">
+                                <span class="cart_list__description">@item.TextField</span>
+                                <span class="cart_list__price">@item.Price</span>
+                            </div>
+                        } 
+                    }
+                </div>
+                <div class="recommendations"></div>
             </div>
-            <div class="recommendations"></div>
-        </div>
         
-        <div class="shopping_cart_01__background">
-            <div class="background__left"></div>
-            <div class="background__right"></div>
+            <div class="shopping_cart_01__background">
+                <div class="background__left"></div>
+                <div class="background__right"></div>
+            </div>
         </div>
-    </div>
-    
-</ScaffoldingRenderElement>
 
+</ScaffoldingRenderElement>
+   
 
 @code {
+    [Parameter] public string TotalPrice { get; set; } = "Not set...";
+    [Parameter] public List<ListItem>? Items { get; set; }
 
-    public void SelectConfig(ConfigType configType)
+    public class ListItem
     {
-        _selectedConfig = configType switch
-        {
-            ConfigType.Good => _config1,
-            ConfigType.Better => _config2,
-            ConfigType.Best => _config3,
-            _ => throw new ArgumentOutOfRangeException(nameof(configType), configType, null)
-            };
-        StateHasChanged();
+        public string ImageSource { get; set; } = "";
+        public string TextField { get; set; } = "";
+        public string? Price { get; set; } = "";
     }
-
-    private List<ComputerItem> _selectedConfig = new List<ComputerItem>();
-    
-    private List<ComputerItem> _config1 = new List<ComputerItem>();
-    private List<ComputerItem> _config2 = new List<ComputerItem>();
-    private List<ComputerItem> _config3 = new List<ComputerItem>();
-
-    protected override void OnInitialized()
-    {
-        _config1 = PCService.GetConfig("config_1");
-        _config2 = PCService.GetConfig("config_2");
-        _config3 = PCService.GetConfig("config_3");
-        _selectedConfig = _config1;
-        StateHasChanged();
-        base.OnInitialized();
-    }
-
-    public enum ConfigType
-    {
-        Good,
-        Better,
-        Best
-    }
-
 }
