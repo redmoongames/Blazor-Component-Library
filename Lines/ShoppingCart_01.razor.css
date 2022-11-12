@@ -109,6 +109,12 @@ img {
     text-align: right;
 }
 
+.shopping_cart_01__button {
+    margin: 0 auto 50px auto;
+    width: 70%;
+    color: #007bed;
+}
+
 .cart_list__description {
     text-transform: uppercase;
 }
@@ -119,7 +125,7 @@ img {
     margin-bottom: 50px;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 960px) {
     .shopping_cart_01__left_part {
         width: 100%;
         position: inherit;
