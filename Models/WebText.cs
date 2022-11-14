@@ -2,8 +2,6 @@ namespace ElementsLib.Models;
 
 public abstract class WebSize
 {
-    public abstract int Size { get; set; }
-
     public override string ToString()
     {
         return $"-1px; ";
@@ -12,7 +10,7 @@ public abstract class WebSize
 
 public class WebSizePercent : WebSize
 {
-    public override int Size { get; set; }
+    private int Size { get; set; }
 
     public WebSizePercent(int percent)
     {
@@ -27,7 +25,7 @@ public class WebSizePercent : WebSize
 }
 public class WebSizePx : WebSize
 {
-    public override int Size { get; set; }
+    private int Size { get; set; }
 
     public WebSizePx(int sizePx)
     {
@@ -43,9 +41,9 @@ public class WebSizePx : WebSize
 
 public class WebSizeEm : WebSize 
 {
-    public override int Size { get; set; }
+    private float Size { get; set; }
 
-    public WebSizeEm(int sizeEm)
+    public WebSizeEm(float sizeEm)
     {
         if (sizeEm < 0) throw new ArgumentOutOfRangeException();
         Size = sizeEm;

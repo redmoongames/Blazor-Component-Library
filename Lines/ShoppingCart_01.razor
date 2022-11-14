@@ -12,8 +12,8 @@
                     </div>
                 </div>
                 
-                <div class="shopping_cart_01__price">
-                    <Title_01 TextField=@(TotalPrice) />
+                <div class="shopping_cart_01__price evogria">
+                    <Title_01 TextField=@(new WebText(TotalPrice){ Color = "#007bed"}) />
                 </div>
                 
                 <div class="shopping_cart_01__button evogria">
@@ -37,7 +37,15 @@
                         } 
                     }
                 </div>
-                <div class="recommendations"></div>
+                <div class="recommendations evogria">
+                    <Title_01 TextField=@(new WebText("RECOMMENDED ESSENTIALS"){ Size = new WebSizeEm(1.8f), Color = "#fff"}) />
+                    <div class="recommendations__wrapper">
+                        <div class="recommendations__item"></div>
+                        <div class="recommendations__item"></div>
+                        <div class="recommendations__item"></div>
+                        <div class="recommendations__item"></div>
+                    </div>
+                </div>
             </div>
         
             <div class="shopping_cart_01__background">

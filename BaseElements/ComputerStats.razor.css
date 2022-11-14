@@ -1,0 +1,39 @@
+
+.item {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.item__image {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.item__progress_wrapper {
+    width: calc(100% - 45px);
+}
+
+.progress_wrapper__text {
+    font-size: .75em;
+    margin-bottom: 5px;    
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.progress_wrapper__progress {
+    height: 8px;
+    background: white;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.progress {
+    background: #c25be9;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+}

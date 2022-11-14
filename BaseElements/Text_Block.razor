@@ -1,13 +1,17 @@
 @using ElementsLib.Models
+@inherits ScaffoldingRenderElement
 
-<p style="@TextStyles">@Text</p>
+<ScaffoldingRenderElement Child="this">
+    <p style="@TextStyles">@Text</p>
+</ScaffoldingRenderElement>
 
 @code {
+    public override int? SpacingBottom { get; set; } = 0;
+    public override int? SpacingTop { get; set; } = 0;
+
     [Parameter] public WebText Text { get; set; }
-    [Parameter] public WebSize? MarginTop { get; set; }
-    [Parameter] public WebSize? MarginBottom { get; set; }
-    [Parameter] public TextAlign Align { get; set; }
-    [Parameter] public WebSize? Size { get; set; }
+    [Parameter] public WebTextAlign? Align { get; set; }
+    [Parameter] public WebSize? FontSize { get; set; }
     [Parameter] public WebColor? Color { get; set; }
     [Parameter] public string? FontWeight { get; set; }
     [Parameter] public string? FontName { get; set; }
@@ -17,8 +21,10 @@
         get
         {
             var returnString = "";
-            returnString += MarginTop != null ? $"margin-top: {MarginTop}; " : "";
-            returnString += MarginBottom != null ? $"margin-bottom: {MarginBottom}; " : "";
+            returnString += Align != null ? $"text-align: {Align}; " : "";
+            returnString += FontName != null ? $"font-size: {FontSize}; " : "";
+            returnString += Color != null ? $"color: {Color}; " : "";
+            returnString += FontWeight != null ? $"font-weight: {FontWeight}; " : "";
             returnString += FontName != null ? $"font-family: {FontName}; " : "";
             return returnString;
         }

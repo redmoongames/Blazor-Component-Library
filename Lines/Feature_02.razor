@@ -6,23 +6,47 @@
     <div class="feature_02">
         @foreach (var item in Items)
         {
-            <div class="feature_02__wrapper">
-                <div>
+            <div class="feature_02__item">
+                
+                <img class="item__background_avatar"
+                     src="//cdn.shopify.com/s/files/1/0408/5792/7834/files/Good-1_117x117.jpg?v=1614350504"
+                     alt="First configuration avatar"/>
+
+                <div class="item__background"></div>
+
+                <div class="item__content">
                     <Text_Title
+                        FontSize="new WebSizeEm(2)"
                         Text="@item.Header.Content"
                         HeadlineType="Text_Title.Headline.H3"
-                        MarginBottom="@(new WebSizePx(15))"
-                        FontName="evogria" />
-                    
+                        SpacingBottom="@(15)"
+                        FontName="evogria"/>
+
                     <Text_Block
                         Text="@item.TextField"
-                        MarginBottom="@(new WebSizePx(25))"/>
+                        SpacingBottom="@(15)"/>
+
+                    <ComputerStats
+                        SpacingTop="20"
+                        SpacingBottom="20" />
+
+                    <Text_Title
+                        Text="@("Starting at")"
+                        FontSize="new WebSizeEm(.6f)"
+                        Align=@(new WebTextAlign(TextAlignType.Center))
+                        FontName="evogria"/>
+
+                    <Text_Title
+                        Text="@("$2,228")"
+                        FontSize="new WebSizeEm(1.1f)"
+                        Align=@(new WebTextAlign(TextAlignType.Center))
+                        FontName="evogria"/>
                 </div>
-                
 
                 <Button_Stretch
                     Button=@item.Button
                     Height="new WebSizePx(55)"/>
+
             </div>
         }
     </div>

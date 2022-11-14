@@ -1,18 +1,21 @@
 @using ElementsLib.Models
 @inherits Text_Block
 
-<div class="title">
-    <Dynamic Tag="@(Transform(HeadlineType))" Styles="@TextStyles">
-        @Text
-    </Dynamic>
-</div>
+<ScaffoldingRenderElement Child="this" >
+    <div class="title">
+        <Dynamic Tag="@(Transform(HeadlineType))" Styles="@TextStyles">
+            @Text
+        </Dynamic>
+    </div>
+</ScaffoldingRenderElement>
+
 
 
 @code {
 
-    [Parameter] public Headline HeadlineType { get; set; }
+    [Parameter] public Headline HeadlineType { get; set; } = Headline.None;
 
-    private string Transform(Headline headline)
+    internal string Transform(Headline headline)
     {
         return headline switch
         {

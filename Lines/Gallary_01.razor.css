@@ -1,0 +1,10 @@
+
+.gallery_01 {
+    font-size: 0;
+}
+
+.gallery_01__photo {
+    height: 50px;
+    width: 25%;
+    display: inline-block;
+}
