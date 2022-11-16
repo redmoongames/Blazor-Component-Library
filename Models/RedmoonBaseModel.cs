@@ -29,7 +29,7 @@ public class RedmoonBaseModel : ComponentBase
     [Parameter] public virtual string? BackgroundVideo { get; set; }
     [Parameter] public virtual string? BackgroundImage { get; set; }
 
-    [Parameter] public virtual TextAlignType GlobalTextAlignType { get; set; } = TextAlignType.Left;
+    [Parameter] public virtual WebAlignType GlobalWebAlignType { get; set; } = WebAlignType.Left;
     /// <summary>
     /// Set color of all inherit fonts. Hex type color format, like: #fff or #ffffff
     /// </summary>
@@ -49,7 +49,7 @@ public class RedmoonBaseModel : ComponentBase
         var returnString = "";
         returnString += SpacingTop != null ? $"padding-top: {SpacingTop}px; " : "";
         returnString += SpacingBottom != null ? $"padding-bottom: {SpacingBottom}px; " : "";
-        returnString += GlobalTextAlignType != null ? $"text-align: {GlobalTextAlignType}; " : "";
+        returnString += GlobalWebAlignType != null ? $"text-align: {GlobalWebAlignType}; " : "";
         returnString += GlobalTextColor != null ? $"color: {GlobalTextColor}; " : "";
         returnString += BackgroundColor != null ? $"background-color: {BackgroundColor}; " : "";
         // returnString += MaxWidth != null ? $"max-width: {MaxWidth}px; " : "";

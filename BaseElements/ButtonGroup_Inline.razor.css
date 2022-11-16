@@ -4,7 +4,7 @@
     cursor: pointer;
 }
 
-ul {
+.button_group {
     display: flex;
     flex-direction: row;
     padding: 0;
@@ -12,11 +12,11 @@ ul {
     height: 100%;
 }
 
-li:first-of-type{
+.button_group__button:first-of-type{
     margin-left: 0;
 }
 
-li {
+.button_group__button {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,9 +24,19 @@ li {
     width: 100%;
     border-radius: 10px;
     box-shadow: 5px 5px 5px #0000001a;
+    
 }
 
-a {
+.button_group__button--neo_style {
+    font-family: Poppins,sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.button_group__button a {
     appearance: none;
     text-decoration: none;
     text-align: center;

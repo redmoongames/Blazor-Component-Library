@@ -1,8 +1,8 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits ScaffoldingRenderElement
+@inherits WebLineModel
 
-<ScaffoldingRenderElement Child="this">
+<Scaffolding ChildWebBlockModel="this">
     <div class="feature_02">
         @foreach (var item in Items)
         {
@@ -15,48 +15,47 @@
                 <div class="item__background"></div>
 
                 <div class="item__content">
-                    <Text_Title
-                        FontSize="new WebSizeEm(2)"
-                        Text="@item.Header.Content"
-                        HeadlineType="Text_Title.Headline.H3"
-                        SpacingBottom="@(15)"
-                        FontName="evogria"/>
+                    <TextBlock
+                        TextField="@item.Header" 
+                        IsTitle="true"
+                        Size="TextBlock.SizeType.Large"
+                        FontFamily="evogria"
+                        Tag="TextBlock.TagType.H3"
+                        MarginBottom=@(new WebSizePx(15)) />
 
-                    <Text_Block
-                        Text="@item.TextField"
-                        SpacingBottom="@(15)"/>
+                    <TextBlock
+                        TextField="@item.TextField"
+                        MarginBottom=@(new WebSizePx(15)) />
 
                     <ComputerStats
-                        SpacingTop="20"
-                        SpacingBottom="20" />
+                        MarginTop=@(new WebSizePx(15))
+                        MarginBottom=@(new WebSizePx(15)) />
 
-                    <Text_Title
-                        Text="@("Starting at")"
-                        FontSize="new WebSizeEm(.6f)"
-                        Align=@(new WebTextAlign(TextAlignType.Center))
-                        FontName="evogria"/>
+                    <TextBlock
+                        TextField="@("Starting at")"
+                        FontFamily="evogria"
+                        FontSize=@(new WebSizeEm(.6f)) />
 
-                    <Text_Title
-                        Text="@("$2,228")"
-                        FontSize="new WebSizeEm(1.1f)"
-                        Align=@(new WebTextAlign(TextAlignType.Center))
-                        FontName="evogria"/>
+                    <TextBlock
+                        TextField="@("$2,228")"
+                        FontFamily="evogria"
+                        FontSize=@(new WebSizeEm(1.1f))  />
                 </div>
 
                 <Button_Stretch
                     Button=@item.Button
-                    Height="new WebSizePx(55)"/>
+                    Height=@(new WebSizePx(55)) />
 
             </div>
         }
     </div>
-</ScaffoldingRenderElement>
+</Scaffolding>
 
 
 @code {
 
     
-    public override string? BackgroundColor { get; set; } = "#fff";
+    public override WebColor? BackgroundColor { get; set; } = "#fff";
 
     public List<Content> Items => new List<Content>
     {

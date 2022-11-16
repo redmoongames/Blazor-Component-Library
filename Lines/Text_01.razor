@@ -1,10 +1,10 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits ScaffoldingRenderElement
+@inherits WebLineModel
 
-<ScaffoldingRenderElement Child="@(this)">
+<Scaffolding ChildWebBlockModel="@(this)">
     <div class="text-simple" >
-        <p class="text-simple__header evogria" style="@Header.Styles">
+        <p class="text-simple__header" style="@Header.Styles">
             @Header
         </p>
         
@@ -12,17 +12,13 @@
             @TextField
         </p>
     </div>
-</ScaffoldingRenderElement>
+</Scaffolding>
 
 
 @code {
 
-    [Parameter] public TextModel Header { get; set; } = new("TextField");
+    [Parameter] public WebText Header { get; set; } = new("TextField");
 
-    [Parameter] public TextModel TextField { get; set; } = new("TextField");
-    
-    public override string ElementName { get; set; } = "Title_01";
-    
-    public override TextAlignType GlobalTextAlignType { get; set; } = TextAlignType.Center;
+    [Parameter] public WebText TextField { get; set; } = new("TextField");
 
 }

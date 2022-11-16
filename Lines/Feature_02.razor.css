@@ -55,8 +55,7 @@
 }
 
 .item__content {
-
-    margin: 40px 20px;
+    margin: 0 20px 40px 20px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -69,7 +68,7 @@
 @media only screen and (max-width: 960px) {
     .feature_02__item {
         width: 100%;
-        margin: 0 0 25px;
+        margin: 0 0 80px;
     }
     
     .feature_02 {

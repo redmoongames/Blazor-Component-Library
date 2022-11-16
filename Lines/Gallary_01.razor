@@ -1,13 +1,21 @@
 @using ElementsLib.BaseElements
-@inherits ScaffoldingRenderElement
+@using ElementsLib.Models
+@inherits WebLineModel
 
-<ScaffoldingRenderElement Child="this" >
+<Scaffolding ChildWebBlockModel="this" BlockName="Gallery_01" >
     <div class="gallery_01">
-        <div class="gallery_01__photo" style="background-color: #00cce7"></div>
-        <div class="gallery_01__photo" style="background-color: #541354"></div>
-        <div class="gallery_01__photo" style="background-color: red"></div>
-        <div class="gallery_01__photo" style="background-color: blanchedalmond"></div>
-        <div class="gallery_01__photo" style="background-color: #b6dcff"></div>
-        <div class="gallery_01__photo" style="background-color: brown"></div>
+        @foreach (var image in Images)
+        {
+            <div class="gallery_01__photo gallery_01__size--20">
+                <img src=@(image) alt="Photo">
+            </div>
+        }
     </div>
-</ScaffoldingRenderElement>
+</Scaffolding>
+
+@code
+{
+    public override ColumnWidth? ContentWidth { get; set; } = ColumnWidth.col_100;
+    
+    [Parameter] public List<string> Images { get; set; }
+}

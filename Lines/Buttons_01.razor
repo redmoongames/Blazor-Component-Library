@@ -1,26 +1,33 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits ScaffoldingRenderElement
+@inherits WebLineModel
 
-<ScaffoldingRenderElement Child="this">
+<Scaffolding ChildWebBlockModel="this">
     <div class="buttons_01 evogria">
         @foreach(var button in Buttons)
         {
             <div class="buttons_01__item">
-                <Button_Stretch Button="button" />
+                <Button_Stretch Button="button" Height=@(new WebSizePx(Height)) />
             </div>
         }
     </div>
-</ScaffoldingRenderElement>
+</Scaffolding>
 
 @code {
 
-    public List<WebButtonModel> Buttons => new List<WebButtonModel>
-    {
-        Button1, Button2, Button3
-    };
+    [Parameter] public int Height { get; set; } = 60;
+    [Parameter] public WebButtonModel? Button1 { get; set; }
+    [Parameter] public WebButtonModel? Button2 { get; set; }
+    [Parameter] public WebButtonModel? Button3 { get; set; }
+
+    private List<WebButtonModel> Buttons => GetButtons();
     
-    [Parameter] public WebButtonModel Button1 { get; set; }
-    [Parameter] public WebButtonModel Button2 { get; set; }
-    [Parameter] public WebButtonModel Button3 { get; set; }
+    private List<WebButtonModel> GetButtons()
+    {
+        var returnList = new List<WebButtonModel>();
+        if (Button1 != null) returnList.Add(Button1);
+        if (Button2 != null) returnList.Add(Button2);
+        if (Button3 != null) returnList.Add(Button3);
+        return returnList;
+    }
 }

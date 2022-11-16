@@ -1,29 +1,31 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits ScaffoldingRenderElement
+@inherits WebLineModel
 
-<ScaffoldingRenderElement Child="this">
+<Scaffolding ChildWebBlockModel="this">
     <div class="feature_01">
         @foreach (var item in Items)
         {
             <div class="feature_01__wrapper">
                 <div class="feature_01__header evogria" style="@item.Header.Styles">
-                    <Text_Title 
-                        Text="@item.Header.Content" 
-                        HeadlineType="Text_Title.Headline.H3" />
+                    <TextBlock 
+                        IsTitle="true"
+                        TextField="@item.Header.Content" 
+                        Tag=@(TextBlock.TagType.H3)
+                        Size="TextBlock.SizeType.Medium" />
                 </div>
                 <div class="feature_01__description" style="@item.TextField.Styles">
-                    <Text_Block Text="@item.TextField.Content" />
+                    <TextBlock
+                        LineHeight="2"
+                        Size="TextBlock.SizeType.Medium"
+                        TextField="@item.TextField" />
                 </div>
             </div>
         }
     </div>
-</ScaffoldingRenderElement>
+</Scaffolding>
 
 @code {
-    public override string? BackgroundColor { get; set; } = "#232323";
-    
-    
     public List<Content> Items => new List<Content>
     {
         Feature1, Feature2, Feature3

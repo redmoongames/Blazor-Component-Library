@@ -1,0 +1,18 @@
+@using ElementsLib.Models
+@using ElementsLib.BaseElements
+@inherits WebBlockModel
+
+<Scaffolding ChildWebBlockModel="this" BlockName="About_01">
+    
+</Scaffolding>
+
+@code {
+    [Parameter]
+    public string ImageSource { get; set; }
+    
+    [Parameter]
+    public WebText? TextFieldTitle { get; set; }
+    
+    [Parameter]
+    public WebText? TextField { get; set; }
+}

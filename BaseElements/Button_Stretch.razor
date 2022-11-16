@@ -1,16 +1,20 @@
 @using ElementsLib.Models
+@inherits WebBlockModel
 
-<a @onclick="ButtonClick" href="@Button.Reference" class="button_stretch" style="@Button.WebStyles @_styles">
-    <span class="button_stretch__text" style="@Button.Text.Styles">
-        @Button.Text
-    </span>
-    @if (Button.BackgroundImage != null)
-    {
-        <div class="button_stretch__image">
-            <img src=@(Button.BackgroundImage) alt="">
-        </div>
-    }
-</a>
+<Scaffolding ChildWebBlockModel="this">
+    <a @onclick="ButtonClick" href="@Button.Reference" class="button_stretch" style="@Button.WebStyles @_styles">
+        <span class="button_stretch__text" style="@Button.Text.Styles">
+            @Button.Text
+        </span>
+        @if (Button.BackgroundImage != null)
+        {
+            <div class="button_stretch__image">
+                <img src=@(Button.BackgroundImage) alt="">
+            </div>
+        }
+    </a>
+</Scaffolding>
+
 
 @code {
 

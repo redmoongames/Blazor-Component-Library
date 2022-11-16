@@ -1,10 +1,10 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
 @using Microsoft.JSInterop
-@inherits ScaffoldingRenderElement
 @inject IJSRuntime JsRuntime
+@inherits WebLineModel
 
-<ScaffoldingRenderElement Child="@(this)">
+<Scaffolding ChildWebBlockModel="this">
 	<div class="header">
 		<div class="header__logo">
 			<div @onclick="ChangeState" class="header__burger">
@@ -50,19 +50,18 @@
 		</div>
 	</div>
 
-</ScaffoldingRenderElement>
+</Scaffolding>
 
 
 @code {
 
-	[Parameter] public string LogoSource { get; set; } = "";
+	[Parameter] public string LogoSource { get; set; } = "https://static.powerc.store/logo.png";
 	[Parameter] public int LogoWidth { get; set; } = 120;
 
-	public override int? SpacingTop { get; set; } = 0;
-	public override int? SpacingBottom { get; set; } = 0;
-	public override string ElementName { get; set; } = "Header_transparent";
-	public override ColumnWidth Width { get; set; } = ColumnWidth.col_12;
-	public override ColumnWidth LeftSpace { get; set; } = ColumnWidth.col_0;
+	
+	public override WebColor? BackgroundColor { get; set; } = WebColorFactory.White;
+	public override WebSize? MarginBottom { get; set; } = SizeConst.Zero;
+	public override WebSize? MarginTop { get; set; } = SizeConst.Zero;
 
 	private bool _headerIsOpen = false;
 	

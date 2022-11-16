@@ -2,9 +2,20 @@ using System.Drawing;
 
 namespace ElementsLib.Models;
 
-public class WebColor
+public static class WebColorFactory
+{
+    public static WebColor White => new WebColor("#fff");
+    public static WebColor Black => new WebColor("#000");
+}
+
+public struct WebColor
 {
     public string Hex { get; set; }
+
+    public WebColor()
+    {
+        Hex = "#fff";
+    }
     
     public WebColor(string hex)
     {

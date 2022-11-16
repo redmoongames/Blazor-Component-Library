@@ -1,0 +1,18 @@
+
+.title {
+    font-size: 2em;
+}
+
+.text {
+    font-size: 1em;
+}
+
+.micro {font-size: 0.25em;}
+.super_mini {font-size: 0.55em;}
+.mini {font-size: 0.7em;}
+.small {font-size: 0.85em;}
+.medium {font-size: 1em;}
+.big {font-size: 1.25em;}
+.large {font-size: 1.5em;}
+.extra_large {font-size: 2em;}
+.max_large {font-size: 3em;}

@@ -3,8 +3,36 @@
     font-size: 0;
 }
 
-.gallery_01__photo {
-    height: 50px;
+.gallery_01__size--50 {
+    width: 50%;
+    padding-top: 50%;
+}
+
+.gallery_01__size--33 {
+    width: 33.3332%;
+    padding-top: 33.3332%;
+}
+
+.gallery_01__size--25 {
     width: 25%;
+    padding-top: 25%;
+}
+
+.gallery_01__size--20 {
+    width: 20%;
+    padding-top: 20%;
+}
+
+.gallery_01__photo {
+    height: 0;
     display: inline-block;
+    position: relative;
+}
+
+.gallery_01__photo img {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    object-fit: cover;
+    position: absolute;;
 }

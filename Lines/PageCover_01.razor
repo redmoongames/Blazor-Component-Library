@@ -1,35 +1,43 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits ScaffoldingRenderElement
+@inherits WebLineModel
 
+<Scaffolding ChildWebBlockModel="this" BlockName="PageCover_01">
+    <div class="page_cover_01">
+        <div class="page_cover_01__content">
+            <div class="page_cover_01__header evogria">
+                
+                <TextBlock
+                    TextField="@Title"
+                    Size=@(TextBlock.SizeType.Large)
+                    IsTitle="true"
+                    MarginBottom=@(new WebSizePx(15)) />
 
-<ScaffoldingRenderElement Child="this">
-    
-    <div class="page_cover evogria" style="height: @(Height)vh">
-        <div class="page_cover__content t-container">
-            <div class="content t-col_100">
-                <div class="content__header">
-                    <h2>
-                        @(Header) <br/>
-                        <small>@(WebTextField)</small>
-                    </h2>
-                </div>
-                <div class="content__buttons">
-                    <ButtonGroup_Inline Buttons="Buttons" />
-                </div>
+                <TextBlock 
+                    TextField="@Subtitle"
+                    Size=@(TextBlock.SizeType.Small)
+                    IsTitle="true"
+                    MarginBottom=@(new WebSizePx(30)) />
+            </div>
+            <div class="page_cover_01__buttons">
+                <ButtonGroup_Inline Buttons="Buttons"/>
             </div>
         </div>
     </div>
-
-</ScaffoldingRenderElement>
+</Scaffolding>
 
 
 @code {
-
-    [Parameter] public int Height { get; set; } = 60;
-    [Parameter] public WebText Header { get; set; } = "Header";
-    [Parameter] public WebText WebTextField { get; set; } = "Text field width content";
-    [Parameter] public List<WebButtonModel> Buttons { get; set; }
+    [Parameter] public WebText Title { get; set; } = "Title text";
+    [Parameter] public WebText Subtitle { get; set; } = "Subtitle test";
+    [Parameter] public WebButtonModel LeftButton { get; set; }
+    [Parameter] public WebButtonModel RightButton { get; set; }
     
+    public override WebSize? MarginBottom { get; set; } = SizeConst.Zero;
+    public override WebSize? MarginTop { get; set; } = SizeConst.Zero;
 
+    private List<WebButtonModel> Buttons => new()
+    {
+        LeftButton, RightButton
+    };
 }

@@ -18,11 +18,55 @@ public enum ColumnWidth
     col_10,
     col_11,
     col_12,
-    col_100,
+    col_100
 }
 
 public static class ColumnTransformer
 {
+    public static ColumnWidth IntToColumnWidth(int value)
+    {
+        return value switch
+        {
+            0 => ColumnWidth.col_0,
+            1 => ColumnWidth.col_1,
+            2 => ColumnWidth.col_2,
+            3 => ColumnWidth.col_3,
+            4 => ColumnWidth.col_4,
+            5 => ColumnWidth.col_5,
+            6 => ColumnWidth.col_6,
+            7 => ColumnWidth.col_7,
+            8 => ColumnWidth.col_8,
+            9 => ColumnWidth.col_9,
+            10 => ColumnWidth.col_10,
+            11 => ColumnWidth.col_11,
+            12 => ColumnWidth.col_12,
+            100 => ColumnWidth.col_100,
+            _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
+        };
+    }
+    
+    public static int ColumnWidthToInt(ColumnWidth columnWidth)
+    {
+        return columnWidth switch
+        {
+            ColumnWidth.col_0 => 0,
+            ColumnWidth.col_1 => 1,
+            ColumnWidth.col_2 => 2,
+            ColumnWidth.col_3 => 3,
+            ColumnWidth.col_4 => 4,
+            ColumnWidth.col_5 => 5,
+            ColumnWidth.col_6 => 6,
+            ColumnWidth.col_7 => 7,
+            ColumnWidth.col_8 => 8,
+            ColumnWidth.col_9 => 9,
+            ColumnWidth.col_10 => 10,
+            ColumnWidth.col_11 => 11,
+            ColumnWidth.col_12 => 12,
+            ColumnWidth.col_100 => 100,
+            _ => throw new ArgumentOutOfRangeException(nameof(columnWidth), columnWidth, null)
+        };
+    }
+    
     public static string WidthToClassName(ColumnWidth columnWidth)
     {
         return columnWidth switch

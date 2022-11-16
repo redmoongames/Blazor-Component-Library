@@ -1,26 +1,25 @@
-@inherits RedmoonBaseModel
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
+@inherits WebLineModel
 
-<ScaffoldingRenderElement Child="@(this)">
-    <div class="title">
-        @if (TextField != null)
+<Scaffolding ChildWebBlockModel="this">
+    <h3 class="title_01 @(Align)">
+        <div class="title_01__title" style="@TextTitle.Styles">
+            @TextTitle
+        </div>
+        @if (TextSubtitle != null)
         {
-            <h3 class="title__text" style="@TextField.Styles">
-                @TextField.Content
-            </h3>
+            <div class="title_01__subtitle" style="@TextSubtitle.Styles">
+                @TextSubtitle
+            </div>
         }
-        else
-        {
-            <h3>Default Text...</h3>
-        }
-    </div>
-</ScaffoldingRenderElement>
+    </h3>
+</Scaffolding>
 
 
 @code
 {
-    [Parameter] public WebText? TextField { get; set; } = "Text Field";
-    public override string ElementName { get; set; } = "Title_01";
-    public override TextAlignType GlobalTextAlignType { get; set; } = TextAlignType.Center;
+    [Parameter] public WebAlign? Align { get; set; } = WebAlignType.Center;
+    [Parameter] public WebText TextTitle { get; set; } = "Title Text";
+    [Parameter] public WebText? TextSubtitle { get; set; }
 }

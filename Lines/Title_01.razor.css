@@ -1,16 +1,25 @@
 
-.title__text {
+.title_01 {
     font-size: 2em;
+    line-height: 1.15em;
 }
 
+.title_01__subtitle {
+    font-size: 0.5em;
+}
+
+.left {text-align: left}
+.right {text-align: right}
+.center {text-align: center}
+
 @media only screen and (min-width: 720px) {
-    .title__text {
+    .title_01 {
         font-size: 3em;
     }
 }
 
 @media only screen and (min-width: 1000px) {
-    .title__text {
+    .title_01 {
         font-size: 4em;
     }
 }

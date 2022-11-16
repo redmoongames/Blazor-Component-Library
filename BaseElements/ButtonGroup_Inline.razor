@@ -1,13 +1,17 @@
 @using ElementsLib.Models
+@inherits WebBlockModel
 
-<ul>
-    @foreach (var button in Buttons)
-    {
-        <li style="@button.WebStyles">
-            <a href="@button.Reference" style="@button.Text.Styles">@button.Text</a>
-        </li>
-    }
-</ul>
+<Scaffolding ChildWebBlockModel="this">
+    <ul class="button_group">
+        @foreach (var button in Buttons)
+        {
+            <li class="button_group__button button_group__button--neo_style" style="@button.WebStyles">
+                <a href="@button.Reference" style="@button.Text.Styles">@button.Text</a>
+            </li>
+        }
+    </ul>
+</Scaffolding>
+
 
 @code {
     [Parameter] public WebSize? MaxHeight { get; set; }

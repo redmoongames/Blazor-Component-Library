@@ -1,61 +1,6 @@
 namespace ElementsLib.Models;
 
-public abstract class WebSize
-{
-    public override string ToString()
-    {
-        return $"-1px; ";
-    }
-}
-
-public class WebSizePercent : WebSize
-{
-    private int Size { get; set; }
-
-    public WebSizePercent(int percent)
-    {
-        if (percent is < 0 or > 100) throw new ArgumentOutOfRangeException();
-        Size = percent;
-    }
-
-    public override string ToString()
-    {
-        return $"{Size}px; ";
-    }
-}
-public class WebSizePx : WebSize
-{
-    private int Size { get; set; }
-
-    public WebSizePx(int sizePx)
-    {
-        if (sizePx < 0) throw new ArgumentOutOfRangeException();
-        Size = sizePx;
-    }
-
-    public override string ToString()
-    {
-        return $"{Size}px; ";
-    }
-}
-
-public class WebSizeEm : WebSize 
-{
-    private float Size { get; set; }
-
-    public WebSizeEm(float sizeEm)
-    {
-        if (sizeEm < 0) throw new ArgumentOutOfRangeException();
-        Size = sizeEm;
-    }
-
-    public override string ToString()
-    {
-        return $"{Size}em; ";
-    }
-}
-
-public class WebText : ITextModel
+public class WebText
 {
     public string Styles => GetStyles();
     public string Content { get; set; }
@@ -68,7 +13,7 @@ public class WebText : ITextModel
     {
         var returnString = "";
         returnString += Size != null ? $"font-size: {Size}; " : "";
-        returnString += Color != null ? $"color: {Color.Hex}; " : "";
+        returnString += Color != null ? $"color: {Color}; " : "";
         returnString += FontWeight != null ? $"font-weight: {FontWeight};" : "";
         returnString += FontFamily != null ? $"font-family: {FontFamily};" : "";
         return returnString;
