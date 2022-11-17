@@ -6,7 +6,7 @@
         class=@(IsTitle ? "title" : "text") 
         style=@(LineHeight == null ? GetLineHeight() : "")>
         <Dynamic Tag="@(Transform(Tag))" Styles="@TextField.Styles">
-            <div class="@Classes">
+            <div class="@Classes @GetAlignStyle()">
                 @TextField
             </div>
         </Dynamic>
@@ -16,6 +16,7 @@
 
 
 @code {
+    [Parameter] public WebAlign Align { get; set; } = WebAlignType.Left;
     [Parameter] public SizeType Size { get; set; } = SizeType.Medium;
     [Parameter] public TagType Tag { get; set; } = TagType.P;
     [Parameter] public bool IsTitle { get; set; }
@@ -73,6 +74,17 @@
     private string GetLineHeight()
     {
         return IsTitle ? "line-height: 1.2;" : "line-height: 1.55;";
+    }
+
+    private string GetAlignStyle()
+    {
+        return Align.Type switch
+        {
+            WebAlignType.Left => "align-left ",
+            WebAlignType.Center => "align-center ",
+            WebAlignType.Right => "align-right ",
+            _ => throw new ArgumentOutOfRangeException()
+            };
     }
 
 }

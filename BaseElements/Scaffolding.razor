@@ -26,9 +26,16 @@
         }
         
         <div class="@(webLineModel.ContentWidth != ColumnWidth.col_100 ? "t-container" : "")">
+            
+            
             <div class="@GetWidthClasses() " style="@GetFontStyles() @GetPaddingStyles()">
                 @ChildContent
             </div>
+            
+            @* @foreach (var child in _childFragments) *@
+            @* { *@
+            @*     @child *@
+            @* } *@
         </div>
     </div>
 }
@@ -40,26 +47,15 @@ else
 }
 
 @code {
-    private RenderFragment AddVideo(string source) => builder =>
-    {
-        builder.AddMarkupContent(0, 
-            $"<video autoplay muted loop " +
-            $"style='position: absolute; " +
-            $"z-index: -500; " +
-            $"object-fit: cover;" +
-            $"width:100%;" +
-            $"height:100%;" +
-            $"top: 50%;" +
-            $"left: 50%;" +
-            $"transform: translate(-50%, -50%);'> " +
-            $"<source src='{source}' type='video/mp4'>" +
-            $"</video>");
-    };
+    
+    // [Parameter] public RenderFragment ChildFragment { set => _childFragments.Add(value); }
+    // private List<RenderFragment> _childFragments = new List<RenderFragment>();
+    
     
     
     [Parameter] public string BlockName { get; set; } = "BlockName_01";
     
-    [Parameter] public IWebBlockModel ChildWebBlockModel { get; set; }
+    [Parameter] public IWebBlockModel? ChildWebBlockModel { get; set; }
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
@@ -100,5 +96,20 @@ else
         return returnString;
     }
 
+    private RenderFragment AddVideo(string source) => builder =>
+    {
+        builder.AddMarkupContent(0, 
+            $"<video autoplay muted loop " +
+            $"style='position: absolute; " +
+            $"z-index: -500; " +
+            $"object-fit: cover;" +
+            $"width:100%;" +
+            $"height:100%;" +
+            $"top: 50%;" +
+            $"left: 50%;" +
+            $"transform: translate(-50%, -50%);'> " +
+            $"<source src='{source}' type='video/mp4'>" +
+            $"</video>");
+    };
 
 }

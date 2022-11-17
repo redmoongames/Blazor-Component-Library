@@ -7,6 +7,10 @@
     font-size: 1em;
 }
 
+.align-left {text-align: left;}
+.align-center {text-align: center;}
+.align-right {text-align: right;}
+
 .micro {font-size: 0.25em;}
 .super_mini {font-size: 0.55em;}
 .mini {font-size: 0.7em;}

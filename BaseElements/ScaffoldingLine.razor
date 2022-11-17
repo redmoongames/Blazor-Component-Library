@@ -1,0 +1,115 @@
+@using ElementsLib.Models
+
+
+<div class="scaffolding @BlockName">
+    @if (WebBlockModel.BackgroundFilter != null)
+    {
+        <div class="scaffolding__background_filter" style="background-color: @WebBlockModel.BackgroundFilter">
+        </div>
+    }
+    @if (WebBlockModel.BackgroundVideo != null)
+    {
+        @AddVideo("https://static.powerc.store/photo_pc-12.mp4");
+    }
+    @if (WebBlockModel.BackgroundImage != null)
+    {
+        <div class="scaffolding__background_image">
+            <img src=@WebBlockModel.BackgroundImage alt="background image"/>
+        </div>
+    }
+    @if (WebBlockModel.BackgroundColor != null)
+    {
+        <div class="scaffolding__background_color" style="background-color: @WebBlockModel.BackgroundColor">
+        </div>
+    }
+
+    <div class="@(WebBlockModel.ContentWidth != ColumnWidth.col_100 ? "t-container" : "")">
+        <div class="@GetWidthClasses(ChildContentSettings) " style="@GetFontStyles() @GetPaddingStyles()">
+            @ChildContent(ChildContentSettings)
+        </div>
+        @if (ChildContent2 != null)
+        {
+            <div class="@GetWidthClasses(ChildContent2Settings) " style="@GetFontStyles() @GetPaddingStyles()">
+                @ChildContent2(ChildContent2Settings)
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+
+    public class WebLineBlockSettings
+    {
+        public WebLineBlockSettings(ColumnWidth contentWidth = ColumnWidth.col_12, ColumnWidth leftMargin = ColumnWidth.col_0)
+        {
+            ContentWidth = contentWidth;
+            LeftMargin = leftMargin;
+        }
+        public ColumnWidth? ContentWidth { get; set; }
+        public ColumnWidth? LeftMargin { get; set; }
+    }
+    
+    // [Parameter] public RenderFragment ChildFragment { set => _childFragments.Add(value); }
+    // private List<RenderFragment> _childFragments = new List<RenderFragment>();
+    
+    
+    
+    [Parameter] public string BlockName { get; set; } = "BlockName_01";
+    
+    [Parameter] public WebLineModel WebBlockModel { get; set; }
+
+    [Parameter] public WebLineBlockSettings ChildContentSettings { get; set; } = new WebLineBlockSettings();
+    [Parameter] public WebLineBlockSettings ChildContent2Settings { get; set; } = new WebLineBlockSettings();
+    [Parameter] public RenderFragment<WebLineBlockSettings>? ChildContent { get; set; }
+    [Parameter] public RenderFragment<WebLineBlockSettings>? ChildContent2 { get; set; }
+
+    
+    private string GetWidthClasses(WebLineBlockSettings webLineBlockSettings)
+    {
+        var width = webLineBlockSettings.ContentWidth ?? ColumnWidth.col_100;
+        var leftMargin = webLineBlockSettings.LeftMargin ?? ColumnWidth.col_0;
+
+        if (webLineBlockSettings.ContentWidth == ColumnWidth.col_100) 
+            return $"{ColumnTransformer.WidthToClassName(width)} ";
+        
+        var availableLeftSpace = 12 - ColumnTransformer.ColumnWidthToInt(width);
+        if (availableLeftSpace - leftMargin < 0)
+            leftMargin = ColumnTransformer.IntToColumnWidth(availableLeftSpace);
+
+        return $"t-col {ColumnTransformer.WidthToClassName(width)} {ColumnTransformer.LeftSpaceToClassName(leftMargin)} ";
+    }
+
+    private string GetPaddingStyles()
+    {
+        return $"padding-top: {WebBlockModel.MarginTop}; padding-bottom: {WebBlockModel.MarginBottom}; ";
+    }
+
+    private string GetFontStyles()
+    {
+        var returnString = "";
+        returnString += WebBlockModel.FontColor != null ? $"color: {WebBlockModel.FontColor}; " : "";
+        returnString += WebBlockModel.FontSize != null ? $"font-size: {WebBlockModel.FontSize}; " : "";
+        returnString += WebBlockModel.FontFamily != null ? $"font-family: {WebBlockModel.FontFamily}; " : "";
+        returnString += WebBlockModel.FontWeight != null ? $"font-weight: {WebBlockModel.FontWeight}; " : "";
+        returnString += WebBlockModel.LineHeight != null ? $"line-height: {WebBlockModel.LineHeight}; " : "";
+        return returnString;
+    }
+
+    private RenderFragment AddVideo(string source) => builder =>
+    {
+        builder.AddMarkupContent(0, 
+            $"<video autoplay muted loop " +
+            $"style='position: absolute; " +
+            $"z-index: -500; " +
+            $"object-fit: cover;" +
+            $"width:100%;" +
+            $"height:100%;" +
+            $"top: 50%;" +
+            $"left: 50%;" +
+            $"transform: translate(-50%, -50%);'> " +
+            $"<source src='{source}' type='video/mp4'>" +
+            $"</video>");
+    };
+
+}

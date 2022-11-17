@@ -1,14 +1,35 @@
 @using ElementsLib.Models
 @using ElementsLib.BaseElements
-@inherits WebBlockModel
+@inherits WebLineModel
 
-<Scaffolding ChildWebBlockModel="this" BlockName="About_01">
+<ScaffoldingLine 
+    WebBlockModel=@(this) 
+    BlockName="About_01" 
+    ChildContentSettings=@(new ScaffoldingLine.WebLineBlockSettings(ColumnWidth.col_6)) 
+    ChildContent2Settings=@(new ScaffoldingLine.WebLineBlockSettings(ColumnWidth.col_6))>
+    <ChildContent>
+        <div class="about_01__photo">
+            <img src="https://static.powerc.store/insta/photo_pc-10.jpg" alt="Cool PC Photo">
+        </div>
+    </ChildContent>
     
-</Scaffolding>
+    <ChildContent2>
+        <TextBlock 
+            IsTitle="true"
+            TextField=@("Our mission is to build gaming PCs at the best price without cutting corners.")
+            FontFamily="evogria" MarginBottom="60" />
+        <Button_Stretch 
+            Button=@(new WebButtonModel("Let's build"){BackgroundColor = new WebColor("#c25be9")})
+            Height="50" 
+            FontColor="WebColorFactory.White" />
+    </ChildContent2>
+</ScaffoldingLine>
 
 @code {
-    [Parameter]
-    public string ImageSource { get; set; }
+    public override WebColor? BackgroundColor { get; set; } = new WebColor("#f4f4f4");
+    public override WebColor? FontColor { get; set; } = new WebColor("#3a3a3a");
+
+    [Parameter] public string ImageSource { get; set; }
     
     [Parameter]
     public WebText? TextFieldTitle { get; set; }

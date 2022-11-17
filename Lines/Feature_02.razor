@@ -25,21 +25,27 @@
 
                     <TextBlock
                         TextField="@item.TextField"
-                        MarginBottom=@(new WebSizePx(15)) />
+                        MarginBottom="30" />
 
                     <ComputerStats
-                        MarginTop=@(new WebSizePx(15))
-                        MarginBottom=@(new WebSizePx(15)) />
+                        StatA=@(item.Graphic)
+                        StatB=@(item.Processor)
+                        StatC=@(item.Memmory)
+                        StatD=@(item.Storage)
+                        MarginBottom="30" />
 
                     <TextBlock
                         TextField="@("Starting at")"
-                        FontFamily="evogria"
-                        FontSize=@(new WebSizeEm(.6f)) />
+                        Align=@(WebAlignType.Center)
+                        Size="TextBlock.SizeType.Small"
+                        FontFamily="evogria" />
 
                     <TextBlock
-                        TextField="@("$2,228")"
-                        FontFamily="evogria"
-                        FontSize=@(new WebSizeEm(1.1f))  />
+                        TextField=@(item.PriceField)
+                        IsTitle=@(true)
+                        Size="TextBlock.SizeType.Big"
+                        Align=@(WebAlignType.Center)
+                        FontFamily="evogria"  />
                 </div>
 
                 <Button_Stretch
@@ -71,7 +77,11 @@
         public string ImageSource { get; set; }
         public WebText Header { get; set; }
         public WebText TextField { get; set; }
-        public WebButtonModel Button { get; set; }
+        public int Graphic { get; set; }
+        public int Processor { get; set; }
+        public int Memmory { get; set; }
+        public int Storage { get; set; }
         public string PriceField { get; set; }
+        public WebButtonModel Button { get; set; }
     }
 }

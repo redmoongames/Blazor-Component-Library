@@ -1,6 +1,6 @@
 @inherits WebBlockModel
 
-<ScaffoldingRenderElement Child="this">
+<Scaffolding ChildWebBlockModel="this">
     
     <div class="computer_stats">
         <div class="computer_stats__item">
@@ -24,7 +24,7 @@
                     </svg>
                 </div>
                 <div class="item__progress_wrapper">
-                    <div class="progress_wrapper__text">GRAPHICS</div>
+                    <div class="progress_wrapper__text">@(StatAName)</div>
                     <div class="progress_wrapper__progress">
                         <div class="progress" style="width: @(StatA)%; background: #c25be9;"></div>
                     </div>
@@ -51,7 +51,7 @@
                     </svg>
                 </div>
                 <div class="item__progress_wrapper">
-                    <div class="progress_wrapper__text">GRAPHICS</div>
+                    <div class="progress_wrapper__text">@(StatBName)</div>
                
                     <div class="progress_wrapper__progress">
                         <div class="progress" style="width: @(StatB)%; background: #007bed;"></div>
@@ -79,7 +79,7 @@
                     </svg>
                 </div>
                 <div class="item__progress_wrapper">
-                    <div class="progress_wrapper__text">GRAPHICS</div>
+                    <div class="progress_wrapper__text">@(StatCName)</div>
                     <div class="progress_wrapper__progress">
                         <div class="progress" style="width: @(StatC)%; background: #d93e4d;"></div>
                     </div>
@@ -106,7 +106,7 @@
                     </svg>
                 </div>
                 <div class="item__progress_wrapper">
-                    <div class="progress_wrapper__text">GRAPHICS</div>
+                    <div class="progress_wrapper__text">@(StatDName)</div>
                     <div class="progress_wrapper__progress">
                         <div class="progress" style="width: @(StatD)%; background: #00cce7;"></div>
                     </div>
@@ -115,14 +115,18 @@
         </div>
     </div>
 
-</ScaffoldingRenderElement>
+</Scaffolding>
 
 
 
 @code {
 
     [Parameter] public int StatA { get; set; } = 76;
+    [Parameter] public string StatAName { get; set; } = "Graphic";
     [Parameter] public int StatB { get; set; } = 86;
+    [Parameter] public string StatBName { get; set; } = "Processor";
     [Parameter] public int StatC { get; set; } = 66;
+    [Parameter] public string StatCName { get; set; } = "Memory";
     [Parameter] public int StatD { get; set; } = 90;
+    [Parameter] public string StatDName { get; set; } = "Storage";
 }

@@ -21,8 +21,4 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.10" />
     </ItemGroup>
 
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="Headers\HeaderCenter.razor" />
-    </ItemGroup>
-
 </Project>
