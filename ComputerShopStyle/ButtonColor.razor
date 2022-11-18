@@ -1,0 +1,71 @@
+@using ElementsLib.Models
+@using ElementsLib.BaseElements
+@inherits WebButton
+
+<BlockScaffolding ScaffoldingStyle=@(CssStyles)>
+    <a href="@RedirectLink" class="button_color" style=@($"background-color: {ColorOfButton}")>
+        <TextBlock 
+            TextField=@TextField 
+            Align=@(WebAlignType.Center) />
+    </a>
+</BlockScaffolding>
+
+
+@code {
+    [Parameter] public WebColor ColorOfButton { get; set; } = WebColorFactory.Black;
+    [Parameter] public WebText TextField { get; set; } = "None";
+    [Parameter] public DesignType Type { get; set; } = DesignType.Black;
+    
+    [Parameter] public override string? RedirectLink { get; set; } = "/";
+    [Parameter] public override Action? OnClick { get; set; }
+
+    public override Dictionary<string, object> GetValuesDictionary()
+    {
+        var oldDictionary = base.GetValuesDictionary();
+        oldDictionary.TryAdd("TextField", TextField);
+        oldDictionary.TryAdd("RedirectLink", RedirectLink);
+        oldDictionary.TryAdd("OnClick", OnClick);
+        oldDictionary.TryAdd("Type", Type);
+        return oldDictionary;
+    }
+
+    protected override void OnParametersSet()
+    {
+        switch (Type)
+        {
+            case DesignType.Green:
+                ColorOfButton = "#00c797";
+                FontColor = "#fff";
+                break;
+            case DesignType.Pink:
+                ColorOfButton = "#c25be9";
+                FontColor = "#fff";
+                break;
+            case DesignType.White:
+                ColorOfButton = "#fff";
+                FontColor = "#3a3a3a";
+                break;
+            case DesignType.Black:
+                ColorOfButton = "#000";
+                FontColor = "#fff";
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        base.OnParametersSet();
+        StateHasChanged();
+    }
+
+    private void ButtonClick()
+    {
+        // OnClick?.Invoke();
+    }
+
+    public enum DesignType
+    {
+        Green,
+        Pink,
+        White,
+        Black
+    }
+}

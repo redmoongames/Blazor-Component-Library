@@ -1,8 +1,8 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits WebLineModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="this">
+<LineScaffolding ScaffoldingStyle="CssStyles">
     <h3 class="title_01 @(Align)">
         <div class="title_01__title" style="@TextTitle.Styles">
             @TextTitle
@@ -14,7 +14,7 @@
             </div>
         }
     </h3>
-</Scaffolding>
+</LineScaffolding>
 
 
 @code

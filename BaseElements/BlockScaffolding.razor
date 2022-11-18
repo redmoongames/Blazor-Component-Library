@@ -1,0 +1,11 @@
+@using ElementsLib.Models
+@using ElementsLib.Lines
+
+<div class=@("scaffolding " + ChildContent.Target.GetType().Name) style="@ScaffoldingStyle" >
+    @ChildContent(new ComponentBaseWithStyles())
+</div>
+
+@code {
+    [Parameter] public IWebStyles ScaffoldingStyle { get; set; }
+    [Parameter] public RenderFragment<ComponentBaseWithStyles> ChildContent { get; set; }
+}

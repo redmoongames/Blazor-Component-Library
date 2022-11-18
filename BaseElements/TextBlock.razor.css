@@ -1,3 +1,10 @@
+.text_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    color: inherit;
+}
 
 .title {
     font-size: 2em;
@@ -5,6 +12,7 @@
 
 .text {
     font-size: 1em;
+    
 }
 
 .align-left {text-align: left;}

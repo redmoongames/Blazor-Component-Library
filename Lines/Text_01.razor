@@ -1,8 +1,8 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits WebLineModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="@(this)">
+<LineScaffolding ScaffoldingStyle="CssStyles">
     <div class="text-simple" >
         <p class="text-simple__header" style="@Header.Styles">
             @Header
@@ -12,7 +12,7 @@
             @TextField
         </p>
     </div>
-</Scaffolding>
+</LineScaffolding>
 
 
 @code {

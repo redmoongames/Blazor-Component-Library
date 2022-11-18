@@ -2,9 +2,9 @@
 @using ElementsLib.Models
 @using Microsoft.JSInterop
 @inject IJSRuntime JsRuntime
-@inherits WebLineModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="this">
+<BlockScaffolding>
 	<div class="header">
 		<div class="header__logo">
 			<div @onclick="ChangeState" class="header__burger">
@@ -50,7 +50,7 @@
 		</div>
 	</div>
 
-</Scaffolding>
+</BlockScaffolding>
 
 
 @code {
@@ -59,9 +59,9 @@
 	[Parameter] public int LogoWidth { get; set; } = 120;
 
 	
-	public override WebColor? BackgroundColor { get; set; } = WebColorFactory.White;
-	public override WebSize? MarginBottom { get; set; } = SizeConst.Zero;
-	public override WebSize? MarginTop { get; set; } = SizeConst.Zero;
+	// public override WebColor? BackgroundColor { get; set; } = WebColorFactory.White;
+	// public override WebSize? MarginBottom { get; set; } = WebSize.Zero;
+	// public override WebSize? MarginTop { get; set; } = WebSize.Zero;
 
 	private bool _headerIsOpen = false;
 	

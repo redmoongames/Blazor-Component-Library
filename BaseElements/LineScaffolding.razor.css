@@ -1,65 +1,3 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    text-decoration: none;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-
-
-body {
-}
-
-*, *:before, *:after {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-}
-
-div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, img, b, u, i, center, table, tr, th, td, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
 .t-clear {
     clear: both;
 }
@@ -324,28 +262,12 @@ div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, img, b, u, i, ce
 
 }
 
-.scaffolding {
+.scaffolding_line {
     position: relative;
 }
 
-.scaffolding__block {
-    width: 100%;
-    height: 100%;
-}
 
-/*.scaffolding__video video{*/
-/*    z-index: -500;*/
-/*    position: absolute;*/
-/*    display: block;*/
-/*    object-fit: cover;*/
-/*    width:100%;*/
-/*    height:100%;*/
-/*    top: 50%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*}*/
-
-.scaffolding__background_image {
+.scaffolding_line__background_image {
     z-index: -700;
     position: absolute;
     width: 100%;
@@ -353,20 +275,20 @@ div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, img, b, u, i, ce
     overflow: hidden;
 }
 
-.scaffolding__background_image img {
+.scaffolding_line__background_image img {
     width: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-.scaffolding__background_color {
+.scaffolding_line__background_color {
     z-index: -900;
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.scaffolding__background_filter {
+.scaffolding_line__background_filter {
     z-index: -300;
     position: absolute;
     width: 100%;
@@ -375,14 +297,25 @@ div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, img, b, u, i, ce
 
 
 @media only screen and (max-width: 960px) {
-    .scaffolding {
+    .scaffolding_line {
         font-size: 0.9em
     }
 }
 
 
 @media only screen and (max-width: 640px) {
-    .scaffolding {
+    .scaffolding_line {
         font-size: 0.825em
     }
+}
+
+video {
+    position: absolute; 
+    z-index: -500; 
+    object-fit: cover;
+    width:100%;
+    height:100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

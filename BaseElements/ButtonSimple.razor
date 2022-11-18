@@ -1,0 +1,39 @@
+@using ElementsLib.Models
+@inherits WebButton
+
+<BlockScaffolding>
+    <a @onclick="ButtonClick" href="@RedirectLink" class="button_stretch">
+        <span class="button_stretch__text">
+            @TextField
+        </span>
+        @* @if (BackgroundImage != null) *@
+        @* { *@
+        @*     <div class="button_stretch__image"> *@
+        @*         <img src=@(BackgroundImage) alt=""> *@
+        @*     </div> *@
+        @* } *@
+    </a>
+</BlockScaffolding>
+
+
+@code {
+    [Parameter] public WebText TextField { get; set; } = "";
+    // [Parameter] public string? Bac { get; set; } = "";
+    
+    [Parameter] public override string? RedirectLink { get; set; }
+    [Parameter] public override Action? OnClick { get; set; }
+    
+    private void ButtonClick()
+    {
+        OnClick?.Invoke();
+    }
+    
+    private string _styles 
+    {
+        get
+        {
+            var returnString = "";
+            return returnString;
+        }
+    }
+}

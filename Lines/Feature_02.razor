@@ -1,26 +1,26 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits WebLineModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="this">
+<LineScaffolding ScaffoldingStyle="CssStyles">
     <div class="feature_02">
         @foreach (var item in Items)
         {
             <div class="feature_02__item">
-                
+
                 <img class="item__background_avatar"
                      src="//cdn.shopify.com/s/files/1/0408/5792/7834/files/Good-1_117x117.jpg?v=1614350504"
-                     alt="First configuration avatar"/>
+                     alt="First configuration avatar" />
 
                 <div class="item__background"></div>
 
                 <div class="item__content">
                     <TextBlock
-                        TextField="@item.Header" 
+                        TextField="@item.Header"
                         IsTitle="true"
                         Size="TextBlock.SizeType.Large"
                         FontFamily="evogria"
-                        Tag="TextBlock.TagType.H3"
+                        HtmlTag="Dynamic.HtmlTagType.H3"
                         MarginBottom=@(new WebSizePx(15)) />
 
                     <TextBlock
@@ -45,24 +45,24 @@
                         IsTitle=@(true)
                         Size="TextBlock.SizeType.Big"
                         Align=@(WebAlignType.Center)
-                        FontFamily="evogria"  />
+                        FontFamily="evogria" />
                 </div>
 
-                <ButtonBlock 
-                    Text=@(item.ButtonText) 
-                    RedirectLink=@(item.ButtonLink) 
+                <ButtonBlock
+                    TextField=@(item.ButtonText)
+                    RedirectLink=@(item.ButtonLink)
                     Height="55" />
 
             </div>
         }
     </div>
-</Scaffolding>
+</LineScaffolding>
 
 
 @code {
 
     
-    public override WebColor? BackgroundColor { get; set; } = "#fff";
+    // public override WebColor? BackgroundColor { get; set; } = "#fff";
 
     public List<Content> Items => new List<Content>
     {

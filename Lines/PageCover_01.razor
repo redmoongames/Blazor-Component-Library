@@ -1,8 +1,8 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits WebLineModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="this" BlockName="PageCover_01">
+<LineScaffolding ScaffoldingStyle="CssStyles">
     <div class="page_cover_01">
         <div class="page_cover_01__content">
             <TextBlock
@@ -10,33 +10,26 @@
                 Size=@(TextBlock.SizeType.Large)
                 IsTitle="true"
                 FontFamily="evogria"
-                MarginBottom=@(new WebSizePx(15)) />
+                MarginBottom=@(WebSize.Px15) />
             <TextBlock 
                 TextField="@Subtitle"
                 Size=@(TextBlock.SizeType.Small)
                 IsTitle="true"
                 FontFamily="evogria"
-                MarginBottom=@(new WebSizePx(30)) />
+                MarginBottom=@(WebSize.Px30) />
             <div class="page_cover_01__buttons">
-                <ButtonGroup_Inline Buttons="Buttons"/>
+                <ButtonsInline Buttons="Buttons"/>
             </div>
         </div>
     </div>
-</Scaffolding>
+</LineScaffolding>
 
 
 @code {
     [Parameter] public WebText Title { get; set; } = "Title text";
     [Parameter] public WebText Subtitle { get; set; } = "Subtitle test";
-    [Parameter] public List<ButtonComponent> Buttons { get; set; } = new List<ButtonComponent>();
-    // [Parameter] public WebButtonModel LeftButton { get; set; }
-    // [Parameter] public WebButtonModel RightButton { get; set; }
+    [Parameter] public List<WebButton> Buttons { get; set; } = new List<WebButton>();
     
-    public override WebSize? MarginBottom { get; set; } = SizeConst.Zero;
-    public override WebSize? MarginTop { get; set; } = SizeConst.Zero;
-
-    // private List<WebButtonModel> Buttons => new()
-    // {
-    //     LeftButton, RightButton
-    // };
+    // public override WebSize? MarginBottom { get; set; } = WebSize.Zero;
+    // public override WebSize? MarginTop { get; set; } = WebSize.Zero;
 }

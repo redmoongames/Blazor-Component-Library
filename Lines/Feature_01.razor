@@ -1,8 +1,8 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits WebLineModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="this">
+<LineScaffolding ScaffoldingStyle=@(CssStyles)>
     <div class="feature_01">
         @foreach (var item in Items)
         {
@@ -11,7 +11,7 @@
                     <TextBlock 
                         IsTitle="true"
                         TextField="@item.Header.Content" 
-                        Tag=@(TextBlock.TagType.H3)
+                        HtmlTag=@(Dynamic.HtmlTagType.H3)
                         Size="TextBlock.SizeType.Medium" />
                 </div>
                 <div class="feature_01__description" style="@item.TextField.Styles">
@@ -23,7 +23,7 @@
             </div>
         }
     </div>
-</Scaffolding>
+</LineScaffolding>
 
 @code {
     public List<Content> Items => new List<Content>

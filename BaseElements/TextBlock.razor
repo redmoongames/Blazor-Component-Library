@@ -1,63 +1,55 @@
 @using ElementsLib.Models
-@inherits WebBlockModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="this" BlockName=@($"TextBlock") >
-    <div 
-        class=@(IsTitle ? "title" : "text") 
-        style=@(LineHeight == null ? GetLineHeight() : "")>
-        <Dynamic Tag="@(Transform(Tag))" Styles="@TextField.Styles">
-            <div class="@Classes @GetAlignStyle()">
+<BlockScaffolding ScaffoldingStyle="CssStyles">
+    <div class="text_block @(IsTitle ? "title" : "text")">
+        <Dynamic Tag="@(HtmlTag)" Styles="@TextField.Styles">
+            <div class="@GetAdditionalClasses()">
                 @TextField
             </div>
         </Dynamic>
     </div>
-</Scaffolding>
+</BlockScaffolding>
 
 
 
 @code {
+    [Parameter] public WebText TextField { get; set; } = "Text field";
+    [Parameter] public bool IsTitle { get; set; }
     [Parameter] public WebAlign Align { get; set; } = WebAlignType.Left;
     [Parameter] public SizeType Size { get; set; } = SizeType.Medium;
-    [Parameter] public TagType Tag { get; set; } = TagType.P;
-    [Parameter] public bool IsTitle { get; set; }
-    [Parameter] public WebText TextField { get; set; } = "Text field";
-    
-    internal string Transform(TagType tagType)
+    [Parameter] public Dynamic.HtmlTagType HtmlTag { get; set; } = Dynamic.HtmlTagType.P;
+
+
+    protected override void OnParametersSet()
     {
-        return tagType switch
+        if (LineHeight == null) CssStyles.LineHeight = IsTitle ? 1.2f : 1.55f;
+        base.OnParametersSet();
+    }
+
+    private string GetAdditionalClasses()
+    {
+        var size = Size switch
         {
-            TagType.H1 => "h1",
-            TagType.H2 => "h2",
-            TagType.H3 => "h3",
-            TagType.H4 => "h4",
-            TagType.H5 => "h5",
-            TagType.H6 => "h6",
-            TagType.P => "p",
-            _ => "p"
+            SizeType.SuperMini => "super_mini",
+            SizeType.Mini => "mini",
+            SizeType.Small => "small",
+            SizeType.Medium => "medium",
+            SizeType.Big => "big",
+            SizeType.Large => "large",
+            SizeType.ExtraLarge => "extra_large",
+            _ => throw new ArgumentOutOfRangeException()
             };
-    }
-
-    private string Classes
-    {
-        get
+        
+        var align =  Align.Type switch
         {
-            return Size switch
-            {
-                SizeType.SuperMini => "super_mini",
-                SizeType.Mini => "mini",
-                SizeType.Small => "small",
-                SizeType.Medium => "medium",
-                SizeType.Big => "big",
-                SizeType.Large => "large",
-                SizeType.ExtraLarge => "extra_large",
-                _ => throw new ArgumentOutOfRangeException()
-                };
-        }
-    }
+            WebAlignType.Left => "align-left ",
+            WebAlignType.Center => "align-center ",
+            WebAlignType.Right => "align-right ",
+            _ => throw new ArgumentOutOfRangeException()
+            };
 
-    public enum TagType
-    {
-        H1, H2, H3, H4, H5, H6, P
+        return size + " " + align;
     }
 
     public enum SizeType
@@ -70,21 +62,4 @@
         Large,
         ExtraLarge
     }
-
-    private string GetLineHeight()
-    {
-        return IsTitle ? "line-height: 1.2;" : "line-height: 1.55;";
-    }
-
-    private string GetAlignStyle()
-    {
-        return Align.Type switch
-        {
-            WebAlignType.Left => "align-left ",
-            WebAlignType.Center => "align-center ",
-            WebAlignType.Right => "align-right ",
-            _ => throw new ArgumentOutOfRangeException()
-            };
-    }
-
 }

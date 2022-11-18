@@ -1,8 +1,11 @@
 @using ElementsLib.BaseElements
 @using ElementsLib.Models
-@inherits WebLineModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="this" BlockName="Gallery_01" >
+<LineScaffolding 
+    ScaffoldingStyle="CssStyles" 
+    IsFullWidthContainer="true"
+    ChildWidth="ColumnWidth.col_100" >
     <div class="gallery_01">
         @foreach (var image in Images)
         {
@@ -11,11 +14,10 @@
             </div>
         }
     </div>
-</Scaffolding>
+    
+</LineScaffolding>
 
 @code
 {
-    public override ColumnWidth? ContentWidth { get; set; } = ColumnWidth.col_100;
-    
     [Parameter] public List<string> Images { get; set; }
 }

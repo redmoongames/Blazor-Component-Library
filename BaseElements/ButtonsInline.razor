@@ -1,22 +1,22 @@
 @using ElementsLib.Models
-@inherits WebBlockModel
+@inherits ComponentBaseWithStyles
 
-<Scaffolding ChildWebBlockModel="this" BlockName="ButtonGroup_Inline">
+<BlockScaffolding ScaffoldingStyle="CssStyles">
     <ul class="button_group">
         @foreach (var btn in Buttons)
         {
             <div class="button_group__button @GetWidthStyle()">
-                <DynamicComponent Type=@(btn.GetType()) Parameters=@(btn.ValuesDictionary) />
+                <DynamicComponent Type=@(btn.GetType()) Parameters=@(btn.GetValuesDictionary()) />
             </div>
         }
     </ul>
-</Scaffolding>
+</BlockScaffolding>
 
 
 
 @code {
     [Parameter] public WebSize? MaxHeight { get; set; }
-    [Parameter] public List<ButtonComponent> Buttons { get; set; }
+    [Parameter] public List<WebButton> Buttons { get; set; }
 
     private string GetWidthStyle()
     {
