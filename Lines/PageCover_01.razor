@@ -5,20 +5,18 @@
 <Scaffolding ChildWebBlockModel="this" BlockName="PageCover_01">
     <div class="page_cover_01">
         <div class="page_cover_01__content">
-            <div class="page_cover_01__header evogria">
-                
-                <TextBlock
-                    TextField="@Title"
-                    Size=@(TextBlock.SizeType.Large)
-                    IsTitle="true"
-                    MarginBottom=@(new WebSizePx(15)) />
-
-                <TextBlock 
-                    TextField="@Subtitle"
-                    Size=@(TextBlock.SizeType.Small)
-                    IsTitle="true"
-                    MarginBottom=@(new WebSizePx(30)) />
-            </div>
+            <TextBlock
+                TextField="@Title"
+                Size=@(TextBlock.SizeType.Large)
+                IsTitle="true"
+                FontFamily="evogria"
+                MarginBottom=@(new WebSizePx(15)) />
+            <TextBlock 
+                TextField="@Subtitle"
+                Size=@(TextBlock.SizeType.Small)
+                IsTitle="true"
+                FontFamily="evogria"
+                MarginBottom=@(new WebSizePx(30)) />
             <div class="page_cover_01__buttons">
                 <ButtonGroup_Inline Buttons="Buttons"/>
             </div>
@@ -30,14 +28,15 @@
 @code {
     [Parameter] public WebText Title { get; set; } = "Title text";
     [Parameter] public WebText Subtitle { get; set; } = "Subtitle test";
-    [Parameter] public WebButtonModel LeftButton { get; set; }
-    [Parameter] public WebButtonModel RightButton { get; set; }
+    [Parameter] public List<ButtonComponent> Buttons { get; set; } = new List<ButtonComponent>();
+    // [Parameter] public WebButtonModel LeftButton { get; set; }
+    // [Parameter] public WebButtonModel RightButton { get; set; }
     
     public override WebSize? MarginBottom { get; set; } = SizeConst.Zero;
     public override WebSize? MarginTop { get; set; } = SizeConst.Zero;
 
-    private List<WebButtonModel> Buttons => new()
-    {
-        LeftButton, RightButton
-    };
+    // private List<WebButtonModel> Buttons => new()
+    // {
+    //     LeftButton, RightButton
+    // };
 }

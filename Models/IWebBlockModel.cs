@@ -17,6 +17,9 @@ public interface IWebBlockModel
     WebSize? FontSize { get; set; }
     float? LineHeight { get; set; }
     WebFontWeightType? FontWeight { get; set; }
+    int? BorderRadius { get; set; }
+    int? BorderWidth { get; set; }
+    WebColor? BorderColor { get; set; }
 }
 
 public class WebLineModel : ComponentBase, IWebBlockModel
@@ -35,6 +38,9 @@ public class WebLineModel : ComponentBase, IWebBlockModel
     [Parameter] public virtual WebSize? FontSize { get; set; }
     [Parameter] public float? LineHeight { get; set; }
     [Parameter] public virtual WebFontWeightType? FontWeight { get; set; }
+    [Parameter] public virtual int? BorderRadius { get; set; }
+    [Parameter] public virtual int? BorderWidth { get; set; }
+    [Parameter] public virtual WebColor? BorderColor { get; set; }
 }
 
 public class WebBlockModel : ComponentBase, IWebBlockModel
@@ -51,4 +57,7 @@ public class WebBlockModel : ComponentBase, IWebBlockModel
     [Parameter] public virtual WebSize? FontSize { get; set; }
     [Parameter] public virtual float? LineHeight { get; set; }
     [Parameter] public virtual WebFontWeightType? FontWeight { get; set; }
+    [Parameter] public virtual int? BorderRadius { get; set; }
+    [Parameter] public virtual int? BorderWidth { get; set; }
+    [Parameter] public virtual WebColor? BorderColor { get; set; }
 }

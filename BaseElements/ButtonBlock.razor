@@ -1,0 +1,50 @@
+@using ElementsLib.Models
+@inherits WebBlockModel
+@implements IWebButtonModel
+
+<Scaffolding ChildWebBlockModel="this" BlockName="ButtonBlock">
+    <a @onclick="ButtonClick" href="@RedirectLink" class="button_stretch" style="@Styles">
+        <span class="button_stretch__text">
+            <TextBlock 
+                TextField=@TextField 
+                Size="TextBlock.SizeType.Big" 
+                Align=@(WebAlignType.Center) />
+        </span>
+        @if (BackgroundImage != null)
+        {
+            <div class="button_stretch__image">
+                <img src=@(BackgroundImage) alt="">
+            </div>
+        }
+    </a>
+</Scaffolding>
+
+
+@code {
+    [Parameter] public WebText TextField { get; set; } = "";
+    [Parameter] public string? RedirectLink { get; set; } = "/";
+    [Parameter] public Action? Action { get; set; }
+    [Parameter] public override WebColor? BackgroundColor { get; set; } = new WebColor("#00c797");
+    [Parameter] public override WebColor? FontColor { get; set; } = new WebColor("#fff");
+    [Parameter] public WebSize? Height { get; set; } = new WebSizePercent(100);
+    [Parameter] public WebSize? Width { get; set; } = new WebSizePercent(100);
+    [Parameter] public override int? BorderRadius { get; set; } = 10;
+
+    private void ButtonClick()
+    {
+        Action?.Invoke();
+    }
+    
+    private string Styles 
+    {
+        get
+        {
+            var returnString = "";
+            returnString += BackgroundColor != null ? $"background-color: {BackgroundColor}; " : "";
+            returnString += FontColor != null ? $"color: {FontColor}; " : "";
+            returnString += Height != null ? $"height: {Height}; " : "";
+            returnString += Width != null ? $"width: {Width}; " : "";
+            return returnString;
+        }
+    }
+}

@@ -31,7 +31,7 @@ public class WebSizePercent : WebSize
 
     public override string ToString()
     {
-        return $"{Size}px; ";
+        return $"{Size}%; ";
     }
 }
 public class WebSizePx : WebSize

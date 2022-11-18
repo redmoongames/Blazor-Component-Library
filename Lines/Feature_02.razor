@@ -48,9 +48,10 @@
                         FontFamily="evogria"  />
                 </div>
 
-                <Button_Stretch
-                    Button=@item.Button
-                    Height=@(new WebSizePx(55)) />
+                <ButtonBlock 
+                    Text=@(item.ButtonText) 
+                    RedirectLink=@(item.ButtonLink) 
+                    Height="55" />
 
             </div>
         }
@@ -82,6 +83,8 @@
         public int Memmory { get; set; }
         public int Storage { get; set; }
         public string PriceField { get; set; }
-        public WebButtonModel Button { get; set; }
+        public string ButtonText { get; set; }
+        public string ButtonLink { get; set; }
+        public string ButtonAction { get; set; }
     }
 }

@@ -13,13 +13,20 @@
                 </div>
                 
                 <div class="shopping_cart_01__price evogria">
-                    <Title_01 TextTitle=@(new WebText(TotalPrice){ Color = "#007bed"}) />
+                    <TextBlock
+                        Align="WebAlignType.Center"
+                        TextField="TotalPrice"
+                        IsTitle="true"
+                        Size="TextBlock.SizeType.Big"
+                        FontColor=@(new WebColor("#007bed")) />
                 </div>
                 
                 <div class="shopping_cart_01__button evogria">
-                    <Button_Stretch
-                        Height=@(new WebSizePx(80))
-                        Button=@(new WebButtonModel("ORDER") {BackgroundColor = new WebColor("#00C787")}) />
+                <ButtonBlock 
+                    Text=@("Order") 
+                    FontColor="WebColorFactory.White" 
+                    BackgroundColor=@("#00C787") 
+                    Height="80" />
                 </div>
             </div>
         
@@ -37,8 +44,14 @@
                         } 
                     }
                 </div>
-                <div class="recommendations evogria">
-                    <Title_01 TextTitle=@(new WebText("RECOMMENDED ESSENTIALS"){ Size = new WebSizeEm(1.8f), Color = "#fff"}) />
+                <div class="recommendations">
+                    <TextBlock 
+                        MarginTop="30"
+                        TextField=@("RECOMMENDED ESSENTIALS")
+                        IsTitle="true"
+                        FontFamily="evogria"
+                        Align="WebAlignType.Center"
+                        FontColor=@(WebColorFactory.White) />
                     <div class="recommendations__wrapper">
                         <div class="recommendations__item"></div>
                         <div class="recommendations__item"></div>

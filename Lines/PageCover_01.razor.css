@@ -1,137 +1,28 @@
-
-
 .page_cover_01 {
     display: flex;
     height: 480px;
 }
-
 .page_cover_01__content {
     margin: auto 0;
     width: 600px;
-}
-
-.page_cover_01__header {
     color: white;
-    width: 100%;
 }
-
 .page_cover_01__buttons{
     height: 50px;
-    font-size: 1.3em;
+    /*font-size: 1.3em;*/
 }
-
-
-
 @media only screen and (max-width: 640px) {
     .page_cover_01__buttons{
         height: 65px;
-        font-size: 1.15em;
+        /*font-size: 1.15em;*/
     }
-
     .page_cover_01__content {
         width: 100%;
     }
 }
-
 @media only screen and (max-width: 960px) {
     .page_cover_01__buttons {
         height: 60px;
-        font-size: 1em;
+        /*font-size: 1em;*/
     }
 }
-
-/** {*/
-/*    box-sizing: border-box;*/
-/*}*/
-
-/*.page_cover {*/
-/*    position: relative;*/
-/*    color: white;*/
-/*}*/
-
-/*.scaffolding__video {*/
-/*    position: relative;*/
-/*}*/
-
-/*.background_video {*/
-/*    width: 100%;*/
-/*    height: 100vh;*/
-/*    overflow: hidden;*/
-/*    background-color: rgba(0,0,0, 0.3);*/
-/*}*/
-
-/*.background_video video {*/
-/*    width: 100%;*/
-/*    height: 100vh;*/
-/*    object-fit: cover;*/
-/*    object-position: center;*/
-/*}*/
-
-/*.page_cover__content {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    bottom: 0;*/
-/*    z-index: 3;*/
-
-/*    display: flex;*/
-/*    flex-flow: row wrap;*/
-/*    padding: 10vh 0;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.content {*/
-/*    display: inline-block;*/
-/*    width: 50%;*/
-/*}*/
-
-/*h2 {*/
-/*    font-size: 3.5em;*/
-/*    margin-bottom: 20px;*/
-/*    line-height: 50px;*/
-/*    filter: drop-shadow(5px 5px 5px rgba(0,0,0,.1));*/
-/*}*/
-
-/*small {*/
-/*    font-size: 0.5em;*/
-/*}*/
-
-/*.content__buttons {*/
-/*    height: 80px;*/
-/*    font-size: 1.3em;*/
-/*}*/
-
-
-/*@media only screen and (max-width: 960px) {*/
-/*    li {*/
-/*        width: 100%;*/
-/*    }*/
-/*    */
-/*    a {*/
-/*        width: 100%;*/
-/*    }*/
-/*    */
-/*    .content {*/
-/*        margin: 0 5%;*/
-/*        width: 100%;*/
-/*    }*/
-/*    */
-/*    .content__buttons{*/
-/*        height: 60px;*/
-/*        font-size: 1.25em;*/
-/*    }*/
-/*    */
-/*    h2 {*/
-/*        font-size: 3em;*/
-/*    }*/
-/*}*/
-
-
-/*@media only screen and (max-width: 640px) {*/
-
-/*    .content__buttons{*/
-/*        height: 50px;*/
-/*        font-size: 1em;*/
-/*    }*/
-/*}*/

@@ -7,8 +7,6 @@
 .button_group {
     display: flex;
     flex-direction: row;
-    padding: 0;
-    margin: 0;
     height: 100%;
 }
 
@@ -17,42 +15,10 @@
 }
 
 .button_group__button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-left: 2.5%;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px #0000001a;
-    
 }
 
-.button_group__button--neo_style {
-    font-family: Poppins,sans-serif;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 1.2;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-}
-
-.button_group__button a {
-    appearance: none;
-    text-decoration: none;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-
-
-@media only screen and (max-width: 960px) {
-
-    h2 {
-        font-size: 3em;
-    }
-}
+.w100 {width: 100%;}
+.w50 {width: 50%;}
+.w33 {width: 33.3332%;}
+.w25 {width: 25%;}

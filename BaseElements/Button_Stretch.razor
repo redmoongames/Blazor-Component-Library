@@ -24,9 +24,14 @@
     }
     
     [Parameter] public WebButtonModel Button { get; set; }
-    
-    /// By default is height = 100% 
-    [Parameter] public WebSize? Height { get; set; }
+
+    [Parameter] public WebText Text { get; set; } = "";
+    [Parameter] public string? RedirectLink { get; set; }
+    [Parameter] public override WebColor? BackgroundColor { get; set; } = new WebColor("#00c797");
+    [Parameter] public override WebColor? FontColor { get; set; } = new WebColor("#fff");
+    [Parameter] public Action? Action { get; set; }
+    [Parameter] public WebSize? Height { get; set; } = new WebSizePercent(100);
+    [Parameter] public WebSize? Width { get; set; } = new WebSizePercent(100);
     
     private string _styles 
     {
@@ -34,6 +39,7 @@
         {
             var returnString = "";
             returnString += Height != null ? $"height: {Height}; " : "";
+            returnString += Width != null ? $"width: {Width}; " : "";
             return returnString;
         }
     }

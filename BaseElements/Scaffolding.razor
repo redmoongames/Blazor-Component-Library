@@ -31,11 +31,6 @@
             <div class="@GetWidthClasses() " style="@GetFontStyles() @GetPaddingStyles()">
                 @ChildContent
             </div>
-            
-            @* @foreach (var child in _childFragments) *@
-            @* { *@
-            @*     @child *@
-            @* } *@
         </div>
     </div>
 }
@@ -47,12 +42,6 @@ else
 }
 
 @code {
-    
-    // [Parameter] public RenderFragment ChildFragment { set => _childFragments.Add(value); }
-    // private List<RenderFragment> _childFragments = new List<RenderFragment>();
-    
-    
-    
     [Parameter] public string BlockName { get; set; } = "BlockName_01";
     
     [Parameter] public IWebBlockModel? ChildWebBlockModel { get; set; }

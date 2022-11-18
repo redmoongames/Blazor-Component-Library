@@ -1,5 +1,5 @@
 * {
-    z-index: 100;
+    z-index: 10;
     box-sizing: border-box;
     cursor: pointer;
 }
@@ -15,16 +15,15 @@
     box-shadow: 5px 5px 5px #0000001a;
 }
 
-.button_stretch__text {
-    z-index: 110;
-    text-align: center;
-    width: 100%;
-    /*font-family: Poppins,sans-serif;*/
-    /*font-weight: 700;*/
-    /*font-size: 18px;*/
-    /*line-height: 1.2;*/
-    /*letter-spacing: .1em;*/
-}
+/*.button_stretch__text {*/
+/*    text-align: center;*/
+/*    width: 100%;*/
+/*    font-family: Poppins,sans-serif;*/
+/*    font-weight: 700;*/
+/*    font-size: 18px;*/
+/*    line-height: 1.2;*/
+/*    letter-spacing: .1em;*/
+/*}*/
 
 
 .button_stretch__image {

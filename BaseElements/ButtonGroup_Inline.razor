@@ -1,19 +1,31 @@
 @using ElementsLib.Models
 @inherits WebBlockModel
 
-<Scaffolding ChildWebBlockModel="this">
+<Scaffolding ChildWebBlockModel="this" BlockName="ButtonGroup_Inline">
     <ul class="button_group">
-        @foreach (var button in Buttons)
+        @foreach (var btn in Buttons)
         {
-            <li class="button_group__button button_group__button--neo_style" style="@button.WebStyles">
-                <a href="@button.Reference" style="@button.Text.Styles">@button.Text</a>
-            </li>
+            <div class="button_group__button @GetWidthStyle()">
+                <DynamicComponent Type=@(btn.GetType()) Parameters=@(btn.ValuesDictionary) />
+            </div>
         }
     </ul>
 </Scaffolding>
 
 
+
 @code {
     [Parameter] public WebSize? MaxHeight { get; set; }
-    [Parameter] public List<WebButtonModel> Buttons { get; set; }
+    [Parameter] public List<ButtonComponent> Buttons { get; set; }
+
+    private string GetWidthStyle()
+    {
+        return Buttons.Count switch
+        {
+            1 => "w100",
+            2 => "w50",
+            3 => "w33",
+            _ => "w25"
+            };
+    }
 }
