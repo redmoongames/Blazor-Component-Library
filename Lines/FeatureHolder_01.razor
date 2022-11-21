@@ -1,0 +1,28 @@
+@using ElementsLib.BaseElements
+@using ElementsLib.Models
+@using ElementsLib.Blocks
+@inherits ComponentBaseWithStyles
+
+<ColumnScaffolding ScaffoldingStyle=@(CssStyles)>
+    <AdditionalContent>
+        <div class="feature_holder_01__item">
+            @FirstFeature
+        </div>
+    </AdditionalContent>
+    <AdditionalContent>
+        <div class="feature_holder_01__item">
+            @SecondFeature
+        </div>
+    </AdditionalContent>
+    <AdditionalContent>
+        <div class="feature_holder_01__item">
+            @ThirdFeature
+        </div>
+    </AdditionalContent>
+</ColumnScaffolding>
+
+@code {
+    [Parameter] public RenderFragment FirstFeature { get; set; }
+    [Parameter] public RenderFragment SecondFeature { get; set; }
+    [Parameter] public RenderFragment ThirdFeature { get; set; }
+}

@@ -1,0 +1,13 @@
+@inherits ComponentBaseWithStyles
+
+<BlockScaffolding CssStyles="CssStyles" >
+    <div class="item_image">
+        <img src="@ImageSource" alt="@ImageDescription">
+    </div>
+</BlockScaffolding>
+
+
+@code {
+    [Parameter] public string ImageSource { get; set; }
+    [Parameter] public string ImageDescription { get; set; }
+}

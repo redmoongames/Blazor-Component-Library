@@ -4,51 +4,54 @@
 @inject IJSRuntime JsRuntime
 @inherits ComponentBaseWithStyles
 
-<BlockScaffolding>
-	<div class="header">
-		<div class="header__logo">
-			<div @onclick="ChangeState" class="header__burger">
-				<div class="burger" style="stroke: #666; stroke-width: 1; stroke-linecap: round;">
-					<div class="burger__open_icon @(!_headerIsOpen ? "" : "hide")">
-						<svg viewBox='0 0 10 10' width='40'>
-							<path d='M1 2 h8 M1 4.5 h 8M1 7h8' />
-						</svg>
-					</div>
-					<div class="burger__close_icon @(_headerIsOpen ? "" : "hide")">
-						<svg viewBox='0 0 10 10' width='40'>
-							<line x1="1" y1="1" x2="9" y2="9" />
-							<line x1="9" y1="1" x2="1" y2="9" />
-						</svg>
+<BlockScaffolding CssStyles="CssStyles" HeightOfBlock="@(new WebSizePercent(100))">
+	<ChildContent>
+		<div class="header">
+			<div class="header__logo">
+				<div @onclick="ChangeState" class="header__burger">
+					<div class="burger" style="stroke: #666; stroke-width: 1; stroke-linecap: round;">
+						<div class="burger__open_icon @(!_headerIsOpen ? "" : "hide")">
+							<svg viewBox='0 0 10 10' width='40'>
+								<path d='M1 2 h8 M1 4.5 h 8M1 7h8'/>
+							</svg>
+						</div>
+						<div class="burger__close_icon @(_headerIsOpen ? "" : "hide")">
+							<svg viewBox='0 0 10 10' width='40'>
+								<line x1="1" y1="1" x2="9" y2="9"/>
+								<line x1="9" y1="1" x2="1" y2="9"/>
+							</svg>
+						</div>
 					</div>
 				</div>
+				<div class="logo">
+					<a style="max-width: @(LogoWidth)px" href="/">
+						<img class="logo__img" src="@LogoSource" alt="Company logo">
+					</a>
+				</div>
 			</div>
-			<div class="logo">
-				<a style="max-width: @(LogoWidth)px" href="/">
-					<img class="logo__img" src="@LogoSource" alt="Company logo">
-				</a>
+        
+			<div class="header__left @(_headerIsOpen ? "" : "hide")">
+				<nav class="menu_items">
+					<ul>
+						<li><a href="/">Build your PC</a></li>
+						<li><a href="/">Reviews</a></li>
+						<li><a href="/">Best Sellers</a></li>
+					</ul>
+				</nav>
+			</div>
+        
+			<div class="header__right @(_headerIsOpen ? "" : "hide")">
+				<nav class="menu_items">
+					<ul>
+						<li><a href="/">Discounts</a></li>
+						<li><a href="/">Support</a></li>
+						<li><a href="/">About Us</a></li>
+					</ul>
+				</nav>
 			</div>
 		</div>
-		
-		<div class="header__left @(_headerIsOpen ? "" : "hide")">
-			<nav class="menu_items">
-				<ul>
-					<li><a href="/">Build your PC</a></li>
-					<li><a href="/">Reviews</a></li>
-					<li><a href="/">Best Sellers</a></li>
-				</ul>
-			</nav>
-		</div>
-		
-		<div class="header__right @(_headerIsOpen ? "" : "hide")">
-			<nav class="menu_items">
-				<ul>
-					<li><a href="/">Discounts</a></li>
-					<li><a href="/">Support</a></li>
-					<li><a href="/">About Us</a></li>
-				</ul>
-			</nav>
-		</div>
-	</div>
+	</ChildContent>
+	
 
 </BlockScaffolding>
 

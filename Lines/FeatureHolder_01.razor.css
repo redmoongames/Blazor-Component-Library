@@ -1,0 +1,10 @@
+.feature_holder_01__item {
+    color: white;
+    margin: 0 1.25%;
+    padding: 50px 20px 40px;
+
+    border: 2px solid #00cce7;
+    border-radius: 10px;
+    background: rgb(13,27,35);
+    background: linear-gradient(90deg, rgba(13,27,35,1) 0%, rgba(5,12,18,1) 100%);
+}

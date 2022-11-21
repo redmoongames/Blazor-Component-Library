@@ -1,0 +1,155 @@
+@using ElementsLib.BaseElements
+@using ElementsLib.ComputerShopStyle
+@using ElementsLib.Models
+@inherits ComponentBaseWithStyles
+
+<ColumnScaffolding ScaffoldingStyle="CssStyles">
+    <AdditionalContent>
+        <div class="shopping_cart_02__left_part">
+            <div class="shopping_cart_02__image">
+                <img src="//cdn.shopify.com/s/files/1/0408/5792/7834/files/01_-_Main_-_Liquid_Cooled-removebg-preview.png?v=1614370269" alt="">
+            </div>
+
+            <TextBlock
+                FontFamily="evogria"
+                Align="WebAlignType.Center"
+                TextField="TotalPrice"
+                IsTitle="true"
+                Size="TextBlock.SizeType.Big"
+                FontColor="@(new WebColor("#007bed"))"/>
+
+            <ButtonsInline IsCenter="true"
+                MarginTop="@(30)"
+                WidthOfBlock="@(new WebSizePercent(50))"
+                MarginBottom="@(60)"
+                Buttons="@(new List<WebButton> { new ButtonColor { TextField = "Purchase", Type = ButtonColor.DesignType.Green } })"/>
+        </div>
+    </AdditionalContent>
+    
+    <AdditionalContent>
+        <div class="shopping_cart_02__right_part" style="color: white;">
+            <div class="cart_list">
+                @if (ComputerItems == null || ComputerItems.Count == 0)
+                {
+                    <h5>Loading... Please reload page</h5>
+                }
+                else
+                {
+                    foreach (var item in ComputerItems)
+                    {
+                        <div class="cart_list__item">
+                            <img src=@item.ImageSource alt="">
+                            <span class="cart_list__description">@item.TextField</span>
+                            <span class="cart_list__price">@item.Price</span>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="recommendations">
+                <TextBlock 
+                    MarginTop="@(60)"
+                    MarginBottom="@(30)"
+                    TextField=@("RECOMMENDED ESSENTIALS")
+                    IsTitle="true"
+                    FontFamily="evogria"
+                    Align="WebAlignType.Center"
+                    />
+                <div class="recommendations__items">
+                    @if (AdditionalItems == null)
+                    {
+                        <p>No items to show...</p>
+                    }
+                    else
+                    {
+                        foreach (var item in AdditionalItems)
+                        {
+                            <div class="recommendations__item">
+                                <ImageBlock
+                                    ImageSource="@(item.ImageSource)"
+                                    ImageDescription="@(item.TextField)"
+                                />
+                                <TextBlock
+                                    TextField="@($"{item.TextField} – {item.Price}")"
+                                    Size="TextBlock.SizeType.Medium"
+                                    MarginTop="@(15)"
+                                    FontWeight="WebFontWeightType.Medium"/>
+                                <ButtonColor
+                                    Type="@(ButtonColor.DesignType.Pink)"
+                                    TextField="@("Add")"
+                                    HeightOfBlock="@(40)"
+                                    MarginTop="@(15)"
+                                    MarginBottom="@(30)"/>
+                            </div>
+                        }
+                    }
+                    @* <div class="recommendations__item"> *@
+                    @*     <ImageBlock *@
+                    @*         ImageSource="https://static.powerc.store/additional/headset_stand.png"/> *@
+                    @*     <TextBlock *@
+                    @*         TextField="@("Head set – 25$")" *@
+                    @*         Size="TextBlock.SizeType.Medium" *@
+                    @*         MarginTop="@(15)" *@
+                    @*         FontWeight="WebFontWeightType.Bold"/> *@
+                    @*     <ButtonColor *@
+                    @*         Type="@(ButtonColor.DesignType.Pink)" *@
+                    @*         TextField="@("Add")" *@
+                    @*         HeightOfBlock="@(40)" *@
+                    @*         MarginTop="@(15)" *@
+                    @*         MarginBottom="@(30)"/> *@
+                    @* </div> *@
+                    @* <div class="recommendations__item"> *@
+                    @*     <ImageBlock *@
+                    @*         ImageSource="https://static.powerc.store/additional/headset_stand.png"/> *@
+                    @*     <TextBlock *@
+                    @*         TextField="@("Head set – 25$")" *@
+                    @*         Size="TextBlock.SizeType.Medium" *@
+                    @*         MarginTop="@(15)" *@
+                    @*         FontWeight="WebFontWeightType.Bold"/> *@
+                    @*     <ButtonColor *@
+                    @*         Type="@(ButtonColor.DesignType.Pink)" *@
+                    @*         TextField="@("Add")" *@
+                    @*         HeightOfBlock="@(40)" *@
+                    @*         MarginTop="@(15)" *@
+                    @*         MarginBottom="@(30)"/> *@
+                    @* </div> *@
+                </div>
+            </div>
+        </div>
+    </AdditionalContent>
+</ColumnScaffolding>
+   
+
+@code {
+    [Parameter] public string TotalPrice { get; set; } = "Not set...";
+    [Parameter] public List<ListItem>? ComputerItems { get; set; }
+
+    [Parameter]
+    public List<ListItem>? AdditionalItems { get; set; } = new List<ListItem>
+    {
+        new ListItem
+        {
+            ImageSource = "https://static.powerc.store/additional/headset_stand.png",
+            Price = "25 $",
+            TextField = "Premium Headset"
+        },
+        new ListItem
+        {
+            ImageSource = "https://static.powerc.store/additional/keyboard_mouse.png",
+            Price = "39 $",
+            TextField = "Keyboard and mouse"
+        },
+        new ListItem
+        {
+            ImageSource = "https://static.powerc.store/additional/mouse_lage_big.png",
+            Price = "29 $",
+            TextField = "Mouse Pad Extra"
+        },
+    };
+
+    public class ListItem
+    {
+        public string ImageSource { get; set; } = "";
+        public string TextField { get; set; } = "";
+        public string? Price { get; set; } = "";
+    }
+}

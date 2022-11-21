@@ -1,0 +1,23 @@
+@using ElementsLib.Models
+@using ElementsLib.BaseElements
+
+
+<TextBlock 
+    TextField="@Title"
+    FontFamily="evogria"
+    MarginBottom="30"
+    IsTitle="true"
+    HtmlTag=@(Dynamic.HtmlTagType.H3)
+    Size="TextBlock.SizeType.Medium"
+/>
+<TextBlock
+    TextField="@TextField"
+    MarginBottom="15"
+    FontLineHeight="2"
+    Size="TextBlock.SizeType.Medium"
+/>
+
+@code {
+    [Parameter] public WebText Title { get; set; } = "Title";
+    [Parameter] public WebText TextField { get; set; } = "Text field";
+}

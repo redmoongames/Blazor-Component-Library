@@ -3,17 +3,16 @@
 @using ElementsLib.Models
 @inherits ComponentBaseWithStyles
 
-<LineScaffolding ScaffoldingStyle="CssStyles">
+<ColumnScaffolding ScaffoldingStyle="CssStyles">
     <div class="buttons_01 evogria">
         @foreach(var button in Buttons)
         {
             <div class="buttons_01__item">
                 <DynamicComponent Type=@(button.GetType()) Parameters=@(button.GetValuesDictionary()) />
-                @* <ButtonWithImage Button="button" Height=@(new WebSizePx(Height)) /> *@
             </div>
         }
     </div>
-</LineScaffolding>
+</ColumnScaffolding>
 
 @code {
     [Parameter] public int Height { get; set; } = 60;

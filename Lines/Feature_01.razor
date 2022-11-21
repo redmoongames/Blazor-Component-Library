@@ -1,36 +1,76 @@
-@using ElementsLib.BaseElements
-@using ElementsLib.Models
 @inherits ComponentBaseWithStyles
 
-<LineScaffolding ScaffoldingStyle=@(CssStyles)>
-    <div class="feature_01">
-        @foreach (var item in Items)
-        {
-            <div class="feature_01__wrapper">
-                <div class="feature_01__header evogria" style="@item.Header.Styles">
-                    <TextBlock 
-                        IsTitle="true"
-                        TextField="@item.Header.Content" 
-                        HtmlTag=@(Dynamic.HtmlTagType.H3)
-                        Size="TextBlock.SizeType.Medium" />
-                </div>
-                <div class="feature_01__description" style="@item.TextField.Styles">
-                    <TextBlock
-                        LineHeight="2"
-                        Size="TextBlock.SizeType.Medium"
-                        TextField="@item.TextField" />
-                </div>
+<FeatureHolder_01>
+    <FirstFeature></FirstFeature>
+</FeatureHolder_01>
+
+<ColumnScaffolding
+    ScaffoldingStyle=@(CssStyles)>
+    <AdditionalContent>
+        <div class="feature_01__wrapper">
+            <div class="feature_01__header evogria" style="@Feature1.Header.Styles">
+                <TextBlock
+                    IsTitle="true"
+                    TextField="@Feature1.Header.Content"
+                    HtmlTag=@(Dynamic.HtmlTagType.H3)
+                    Size="TextBlock.SizeType.Medium"/>
             </div>
-        }
-    </div>
-</LineScaffolding>
+            <div class="feature_01__description" style="@Feature1.TextField.Styles">
+                <TextBlock
+                    FontLineHeight="2"
+                    Size="TextBlock.SizeType.Medium"
+                    TextField="@Feature1.TextField"/>
+            </div>
+        </div>
+    </AdditionalContent>
+    <AdditionalContent>
+        <div class="feature_01__wrapper">
+            <div class="feature_01__header evogria" style="@Feature2.Header.Styles">
+                <TextBlock
+                    IsTitle="true"
+                    TextField="@Feature2.Header.Content"
+                    HtmlTag=@(Dynamic.HtmlTagType.H3)
+                    Size="TextBlock.SizeType.Medium"/>
+            </div>
+            <div class="feature_01__description" style="@Feature2.TextField.Styles">
+                <TextBlock
+                    FontLineHeight="2"
+                    Size="TextBlock.SizeType.Medium"
+                    TextField="@Feature2.TextField"/>
+            </div>
+        </div>
+    </AdditionalContent>
+    <AdditionalContent>
+        <div class="feature_01__wrapper">
+            <div class="feature_01__header evogria" style="@Feature3.Header.Styles">
+                <TextBlock
+                    IsTitle="true"
+                    TextField="@Feature3.Header.Content"
+                    HtmlTag=@(Dynamic.HtmlTagType.H3)
+                    Size="TextBlock.SizeType.Medium"/>
+            </div>
+            <div class="feature_01__description" style="@Feature3.TextField.Styles">
+                <TextBlock
+                    FontLineHeight="2"
+                    Size="TextBlock.SizeType.Medium"
+                    TextField="@Feature3.TextField"/>
+            </div>
+        </div>
+    </AdditionalContent>
+</ColumnScaffolding>
 
 @code {
+
+    public Feature_01()
+    {
+        FontColor = WebColorFactory.White;
+    }
+    
     public List<Content> Items => new List<Content>
     {
         Feature1, Feature2, Feature3
     };
-    
+
     [Parameter] public Content Feature1 { get; set; }
     [Parameter] public Content Feature2 { get; set; }
     [Parameter] public Content Feature3 { get; set; }

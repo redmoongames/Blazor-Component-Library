@@ -1,0 +1,17 @@
+@using ElementsLib.Models
+@using ElementsLib.Lines
+@inherits ComponentBaseWithStyles
+
+<div class="@(GetClassesNames())" style="@CssStyles @AdditionalCssStyles" >
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private string GetClassesNames()
+    {
+        var blockName = (ChildContent != null && ChildContent.Target != null ? ChildContent.Target.GetType().Name : "BlockName");
+        return $"scaffolding {blockName}";
+    }
+}

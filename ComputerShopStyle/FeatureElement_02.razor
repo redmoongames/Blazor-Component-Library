@@ -1,0 +1,60 @@
+@using ElementsLib.Models
+@using ElementsLib.BaseElements
+@using ElementsLib.Blocks
+
+
+<TextBlock 
+    TextField="@Title"
+    FontFamily="evogria"
+    IsTitle="true"
+    HtmlTag=@(Dynamic.HtmlTagType.H3)
+    Size="TextBlock.SizeType.Large"
+    Align="@(WebAlignType.Center)"
+/>
+
+<TextBlock
+    MarginTop="@(15)"
+    TextField="@TextField"
+    FontLineHeight="2"
+    Size="TextBlock.SizeType.Medium"
+/>
+
+<ComputerStats
+    MarginTop="@(30)"
+    StatA=@(StatParamA)
+    StatB=@(StatParamB)
+    StatC=@(StatParamC)
+    StatD=@(StatParamD)
+    />
+
+<TextBlock
+    MarginTop="@(30)"
+    TextField="@("Starting at")"
+    Align=@(WebAlignType.Center)
+    Size="@(TextBlock.SizeType.Small)"
+    FontFamily="@("evogria")"/>
+
+<TextBlock
+    TextField=@(PriceField)
+    IsTitle=@(true)
+    Size="@(TextBlock.SizeType.Big)"
+    Align=@(WebAlignType.Center)
+    FontFamily="@("evogria")"
+    />
+
+<ButtonsInline
+    MarginTop="@(30)"
+    Buttons="@(Buttons)" 
+    HeightOfBlock="@(55)" />
+
+@code {
+    [Parameter] public WebText Title { get; set; } = "Title";
+    [Parameter] public WebText TextField { get; set; } = "Text field";
+    [Parameter] public WebText PriceField { get; set; } = "666 $";
+    [Parameter] public int StatParamA { get; set; }
+    [Parameter] public int StatParamB { get; set; }
+    [Parameter] public int StatParamC { get; set; }
+    [Parameter] public int StatParamD { get; set; }
+    [Parameter] public List<WebButton> Buttons { get; set; } = new List<WebButton>();
+
+}

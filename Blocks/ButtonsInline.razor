@@ -1,8 +1,11 @@
 @using ElementsLib.Models
+@using ElementsLib.BaseElements
 @inherits ComponentBaseWithStyles
 
-<BlockScaffolding ScaffoldingStyle="CssStyles">
-    <ul class="button_group">
+<BlockScaffolding AdditionalCssStyles="@("margin: 0 auto; ")"
+    CssStyles="@(CssStyles)" 
+    HeightOfBlock="@(new WebSizePercent(100))">
+    <ul class="button_group @(IsCenter ? "margin: 0 auto; " : "")">
         @foreach (var btn in Buttons)
         {
             <div class="button_group__button @GetWidthStyle()">
@@ -15,7 +18,7 @@
 
 
 @code {
-    [Parameter] public WebSize? MaxHeight { get; set; }
+    [Parameter] public bool IsCenter { get; set; }
     [Parameter] public List<WebButton> Buttons { get; set; }
 
     private string GetWidthStyle()

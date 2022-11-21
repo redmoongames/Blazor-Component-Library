@@ -1,30 +1,31 @@
 @using ElementsLib.Models
 @using ElementsLib.BaseElements
+@using ElementsLib.ComputerShopStyle
+
 @inherits ComponentBaseWithStyles
 
-<LineScaffolding ScaffoldingStyle="CssStyles" ChildWidth="ColumnWidth.col_6" >
-    <ChildContent>
+<ColumnScaffolding ScaffoldingStyle="CssStyles">
+    <AdditionalContent>
         <div class="about_01__photo">
             <img src="https://static.powerc.store/insta/photo_pc-10.jpg" alt="Cool PC Photo">
         </div>
-    </ChildContent>
-    
-    <ChildContent2>
-        <TextBlock 
-            IsTitle="true"
+    </AdditionalContent>
+
+    <AdditionalContent>
+        <TextBlock
+            IsTitle="@(true)"
             TextField=@("Our mission is to build gaming PCs at the best price without cutting corners.")
-            FontFamily="evogria" MarginBottom="60" />
-        <ButtonSimple 
-            TextField=@("Let's build") 
-            BackgroundColor=@(new WebColor("#c25be9"))
-            FontColor="WebColorFactory.White" />
-    </ChildContent2>
-</LineScaffolding>
+            FontColor="@("#3a3a3a")"
+            FontFamily="@("evogria")"/>
+        <ButtonColor
+            MarginTop="@(60)"
+            WidthOfBlock="@(new WebSizePercent(50))"
+            TextField="@("Let's build")"
+            Type="@(ButtonColor.DesignType.Pink)"/>
+    </AdditionalContent>
+</ColumnScaffolding>
 
 @code {
-    // public override WebColor? BackgroundColor { get; set; } = new WebColor("#f4f4f4");
-    // public override WebColor? FontColor { get; set; } = new WebColor("#3a3a3a");
-
     [Parameter] public string ImageSource { get; set; }
     
     [Parameter]

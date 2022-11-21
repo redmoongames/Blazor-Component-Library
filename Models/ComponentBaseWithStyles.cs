@@ -4,7 +4,20 @@ namespace ElementsLib.Models;
 
 public class ComponentBaseWithStyles : ComponentBase, IWebStyles
 {
+    [Parameter] public virtual string AdditionalCssStyles { get; set; }
     [Parameter] public virtual IWebStyles CssStyles { get; set; } = new DefaultWebStyles();
+
+    [Parameter] public WebSize? HeightOfBlock
+    {
+        get => CssStyles.HeightOfBlock;
+        set => CssStyles.HeightOfBlock = value;
+    }
+
+    [Parameter] public WebSize? WidthOfBlock
+    {
+        get => CssStyles.WidthOfBlock;
+        set => CssStyles.WidthOfBlock = value;
+    }
 
     [Parameter] public WebSize? MarginTop
     {
@@ -66,10 +79,10 @@ public class ComponentBaseWithStyles : ComponentBase, IWebStyles
         set => CssStyles.FontSize = value;
     }
 
-    [Parameter] public float? LineHeight
+    [Parameter] public float? FontLineHeight
     {
-        get => CssStyles.LineHeight;
-        set => CssStyles.LineHeight = value;
+        get => CssStyles.FontLineHeight;
+        set => CssStyles.FontLineHeight = value;
     }
 
     [Parameter] public WebFontWeightType? FontWeight

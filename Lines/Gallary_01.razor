@@ -2,10 +2,10 @@
 @using ElementsLib.Models
 @inherits ComponentBaseWithStyles
 
-<LineScaffolding 
+<ColumnScaffolding
     ScaffoldingStyle="CssStyles" 
-    IsFullWidthContainer="true"
-    ChildWidth="ColumnWidth.col_100" >
+    IsFullWidthContainer="true" 
+    FirstColumnSettings=@(new ColumnSettings(ColumnWidth.col_100))>
     <div class="gallery_01">
         @foreach (var image in Images)
         {
@@ -15,7 +15,7 @@
         }
     </div>
     
-</LineScaffolding>
+</ColumnScaffolding>
 
 @code
 {

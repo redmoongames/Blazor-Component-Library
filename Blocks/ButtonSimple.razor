@@ -1,17 +1,10 @@
-@using ElementsLib.Models
-@inherits WebButton
+@inherits ElementsLib.BaseElements.WebButton
 
 <BlockScaffolding>
     <a @onclick="ButtonClick" href="@RedirectLink" class="button_stretch">
         <span class="button_stretch__text">
             @TextField
         </span>
-        @* @if (BackgroundImage != null) *@
-        @* { *@
-        @*     <div class="button_stretch__image"> *@
-        @*         <img src=@(BackgroundImage) alt=""> *@
-        @*     </div> *@
-        @* } *@
     </a>
 </BlockScaffolding>
 

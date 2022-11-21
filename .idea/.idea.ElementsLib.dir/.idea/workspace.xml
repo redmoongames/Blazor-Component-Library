@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="26de48e3-319e-45c4-8c37-165b7b97d6e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/BaseElements/BlockScaffolding.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BaseElements/BlockScaffolding.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/BlockScaffolding.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/BaseElements/BlockScaffolding.razor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/ButtonSimple.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/ButtonSimple.razor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/ButtonsInline.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/ButtonsInline.razor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/ComputerStats.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/ComputerStats.razor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/Dynamic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BaseElements/Dynamic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/LineScaffolding.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/LineScaffolding.razor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/TextBlock.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseElements/TextBlock.razor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComputerShopStyle/ButtonColor.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ComputerShopStyle/ButtonColor.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComputerShopStyle/ButtonWithImage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ComputerShopStyle/ButtonWithImage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComputerShopStyle/ButtonWithImage.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/ComputerShopStyle/ButtonWithImage.razor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/About_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/About_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/Buttons_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/Buttons_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/Feature_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/Feature_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/Feature_02.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/Feature_02.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/Gallary_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/Gallary_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/Header_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/Header_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/PageCover_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/PageCover_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/PageCover_01.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/PageCover_01.razor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/ShoppingCart_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/ShoppingCart_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/Text_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/Text_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lines/Title_01.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Lines/Title_01.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ComponentBaseWithStyles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ComponentBaseWithStyles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/DefaultWebStyles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DefaultWebStyles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/IWebStyles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/IWebStyles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/WebAlignType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/WebAlignType.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HqHuX12aRG8dg0cI5Mzx4rZvok" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1669005916902</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669005916902</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

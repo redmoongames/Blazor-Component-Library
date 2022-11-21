@@ -1,0 +1,126 @@
+@using ElementsLib.Models
+@using ElementsLib.BaseElements
+
+<div class="scaffolding_line @(ScaffoldingName)">
+    @if (ScaffoldingStyle.BackgroundFilter != null)
+    {
+        <div class="scaffolding_line__background_filter" style="background-color: @ScaffoldingStyle.BackgroundFilter">
+        </div>
+    }
+    @if (ScaffoldingStyle.BackgroundVideo != null)
+    {
+        <video autoplay muted loop>
+             <source src='https://static.powerc.store/photo_pc-12.mp4' type='video/mp4'>
+        </video>
+    }
+    @if (ScaffoldingStyle.BackgroundImage != null)
+    {
+        <div class="scaffolding_line__background_image">
+            <img src=@ScaffoldingStyle.BackgroundImage alt="background image"/>
+        </div>
+    }
+    @if (ScaffoldingStyle.BackgroundColor != null)
+    {
+        <div class="scaffolding_line__background_color" style="background-color: @ScaffoldingStyle.BackgroundColor">
+        </div>
+        ScaffoldingStyle.BackgroundColor = null;
+    }
+
+    <div class="@(IsFullWidthContainer ? "t-container_100" : "t-container")" style="@(ScaffoldingStyle)">
+        @for (var i = 0; i < _childContentList.Count; i++)
+        {
+            if (ColumnSettings.Count < _childContentList.Count) 
+                throw new NotImplementedException();
+            <div class="@i @GetColumnClasses(ColumnSettings[i].ContentWidth ?? ColumnWidth.col_12, ColumnSettings[i].LeftSpace ?? ColumnWidth.col_0)">
+                @_childContentList[i]
+            </div>
+        }
+    </div>
+    
+    <div class="backgound">
+        @Background
+    </div>
+</div>
+
+
+@code {
+    /// When object inside Scaffolding change, scaffolder re-render self.
+    /// So all AdditionalContent components run Set() 
+    protected override void OnAfterRender(bool firstRender)
+    {
+        _childContentList = new List<RenderFragment>();
+        base.OnAfterRender(firstRender);
+    }
+    
+    [Parameter] public RenderFragment Background { get; set; }
+
+    [Parameter] public RenderFragment AdditionalContent
+    {
+        get => throw new Exception();
+        set => _childContentList.Add(value);
+    }
+    [Parameter] public RenderFragment ChildContent
+    {
+        get => throw new Exception();
+        set => _childContentList.Add(value);
+    }
+    [Parameter] public IWebStyles ScaffoldingStyle { get; set; }
+    [Parameter] public ColumnSettings? FirstColumnSettings { get; set; }
+    [Parameter] public ColumnSettings? SecondColumnSettings { get; set; }
+    [Parameter] public ColumnSettings? ThirdColumnSettings { get; set; }
+    [Parameter] public bool IsFullWidthContainer { get; set; }
+
+    private List<RenderFragment> _childContentList = new List<RenderFragment>();
+    private List<ColumnSettings> ColumnSettings
+    {
+        get
+        {
+            var list = new List<ColumnSettings>();
+            switch (_childContentList.Count)
+            {
+                case 1:
+                    list.Add(FirstColumnSettings ?? new ColumnSettings(ColumnWidth.col_12));
+                    break;
+                case 2:
+                    list.Add(FirstColumnSettings ?? new ColumnSettings(ColumnWidth.col_6));
+                    list.Add(SecondColumnSettings ?? new ColumnSettings(ColumnWidth.col_6));
+                    break;
+                case 3:
+                    list.Add(FirstColumnSettings ?? new ColumnSettings(ColumnWidth.col_4));
+                    list.Add(SecondColumnSettings ?? new ColumnSettings(ColumnWidth.col_4));
+                    list.Add(ThirdColumnSettings ?? new ColumnSettings(ColumnWidth.col_4));
+                    break;
+                case 4:
+                    list.Add(FirstColumnSettings ?? new ColumnSettings(ColumnWidth.col_3));
+                    list.Add(SecondColumnSettings ?? new ColumnSettings(ColumnWidth.col_3));
+                    list.Add(ThirdColumnSettings ?? new ColumnSettings(ColumnWidth.col_3));
+                    list.Add(ThirdColumnSettings ?? new ColumnSettings(ColumnWidth.col_3));
+                    break;
+            }
+            return list;
+        }
+    }
+
+    private string GetColumnClasses(ColumnWidth width = ColumnWidth.col_12, ColumnWidth leftMargin = ColumnWidth.col_0)
+    {
+        if (width == ColumnWidth.col_100) 
+            return $"{ColumnTransformer.WidthToClassName(ColumnWidth.col_100)}";
+        
+        var availableLeftSpace = 12 - ColumnTransformer.ColumnWidthToInt(width);
+        leftMargin = availableLeftSpace - leftMargin < 0 
+            ? ColumnTransformer.IntToColumnWidth(availableLeftSpace) 
+            : leftMargin;
+
+        return $"t-col {ColumnTransformer.WidthToClassName(width)} {ColumnTransformer.LeftSpaceToClassName(leftMargin)} ";
+    }
+
+    private string ScaffoldingName
+    {
+        get
+        {
+            var child = _childContentList.FirstOrDefault(x => x == x);
+            return child is {Target: { } } ? child.Target.GetType().FullName : "NameField";
+        }
+    }
+
+}

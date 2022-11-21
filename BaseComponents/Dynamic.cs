@@ -15,8 +15,8 @@ public class Dynamic : ComponentBase
     protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
         AdditionalAttributes ??= new Dictionary<string, object>();
-        if (Styles != null) AdditionalAttributes.Add("style", Styles);
-        if (Classes != null) AdditionalAttributes.Add("class", Classes);
+        if (!string.IsNullOrWhiteSpace(Styles)) AdditionalAttributes.Add("style", Styles);
+        if (!string.IsNullOrWhiteSpace(Classes)) AdditionalAttributes.Add("class", Classes);
         
         builder.OpenElement(0, Transform(Tag));
         if (AdditionalAttributes.Any())

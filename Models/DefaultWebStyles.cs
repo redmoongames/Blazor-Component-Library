@@ -4,6 +4,8 @@ public class DefaultWebStyles : IWebStyles
 {
     public WebSize? MarginTop { get; set; }
     public WebSize? MarginBottom { get; set; }
+    public WebSize? HeightOfBlock { get; set; }
+    public WebSize? WidthOfBlock { get; set; }
     public WebColor? BackgroundColor { get; set; }
     public string? BackgroundImage { get; set; }
     public string? BackgroundVideo { get; set; }
@@ -12,7 +14,7 @@ public class DefaultWebStyles : IWebStyles
     public WebColor? FontColor { get; set; }
     public string? FontFamily { get; set; }
     public WebSize? FontSize { get; set; }
-    public float? LineHeight { get; set; }
+    public float? FontLineHeight { get; set; }
     public WebFontWeightType? FontWeight { get; set; }
     public int? BorderRadius { get; set; }
     public int? BorderWidth { get; set; }
@@ -28,6 +30,8 @@ public class DefaultWebStyles : IWebStyles
         
         returnString += MarginTop != null ? $"padding-top: {MarginTop}; " : "";
         returnString += MarginBottom != null ? $"padding-bottom: {MarginBottom}; " : "";
+        returnString += HeightOfBlock != null ? $"height: {HeightOfBlock}; " : "";
+        returnString += WidthOfBlock != null ? $"width: {WidthOfBlock}; " : "";
         
         returnString += BorderRadius != null ? $"border-radius: {BorderRadius}; " : "";
         returnString += BorderColor != null ? $"border: {(BorderWidth != null ? BorderWidth : "1px")} solid {BorderColor}; " : "";
@@ -36,7 +40,7 @@ public class DefaultWebStyles : IWebStyles
         returnString += FontSize != null ? $"font-size: {FontSize}; " : "";
         returnString += FontFamily != null ? $"font-family: {FontFamily}; " : "";
         returnString += FontWeight != null ? $"font-weight: {FontWeight}; " : "";
-        returnString += LineHeight != null ? $"line-height: {LineHeight}; " : "";
+        returnString += FontLineHeight != null ? $"line-height: {FontLineHeight}; " : "";
         
         returnString += BackgroundColor != null ? $"background-color: {BackgroundColor}; " : "";
 
@@ -47,21 +51,23 @@ public class DefaultWebStyles : IWebStyles
     {
         var returnValue = new Dictionary<string, object>();
         
-        returnValue.TryAdd("BorderRadius", BorderRadius);
-        returnValue.TryAdd("BorderWidth", BorderWidth);
-        returnValue.TryAdd("BorderColor", BorderColor);
-        returnValue.TryAdd("FontColor", FontColor);
-        returnValue.TryAdd("FontFamily", FontFamily);
-        returnValue.TryAdd("FontSize", FontSize);
-        returnValue.TryAdd("LineHeight", LineHeight);
-        returnValue.TryAdd("FontWeight", FontWeight);
-        returnValue.TryAdd("BackgroundColor", BackgroundColor);
-        returnValue.TryAdd("BackgroundImage", BackgroundImage);
-        returnValue.TryAdd("BackgroundVideo", BackgroundVideo);
-        returnValue.TryAdd("BackgroundFilter", BackgroundFilter);
-        returnValue.TryAdd("BackgroundFixed", BackgroundFixed);
-        returnValue.TryAdd("MarginTop", MarginTop);
-        returnValue.TryAdd("MarginBottom", MarginBottom);
+        returnValue.TryAdd(nameof(BorderRadius), BorderRadius);
+        returnValue.TryAdd(nameof(BorderWidth), BorderWidth);
+        returnValue.TryAdd(nameof(BorderColor), BorderColor);
+        returnValue.TryAdd(nameof(FontColor), FontColor);
+        returnValue.TryAdd(nameof(FontFamily), FontFamily);
+        returnValue.TryAdd(nameof(FontSize), FontSize);
+        returnValue.TryAdd(nameof(FontLineHeight), FontLineHeight);
+        returnValue.TryAdd(nameof(FontWeight), FontWeight);
+        returnValue.TryAdd(nameof(BackgroundColor), BackgroundColor);
+        returnValue.TryAdd(nameof(BackgroundImage), BackgroundImage);
+        returnValue.TryAdd(nameof(BackgroundVideo), BackgroundVideo);
+        returnValue.TryAdd(nameof(BackgroundFilter), BackgroundFilter);
+        returnValue.TryAdd(nameof(BackgroundFixed), BackgroundFixed);
+        returnValue.TryAdd(nameof(MarginTop), MarginTop);
+        returnValue.TryAdd(nameof(MarginBottom), MarginBottom);
+        returnValue.TryAdd(nameof(HeightOfBlock), HeightOfBlock);
+        returnValue.TryAdd(nameof(WidthOfBlock), WidthOfBlock);
 
         return returnValue;
     }

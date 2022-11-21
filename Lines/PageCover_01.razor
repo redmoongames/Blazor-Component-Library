@@ -1,35 +1,40 @@
 @using ElementsLib.BaseElements
+@using ElementsLib.Blocks
 @using ElementsLib.Models
+@using ElementsLib.BaseComponents
 @inherits ComponentBaseWithStyles
 
-<LineScaffolding ScaffoldingStyle="CssStyles">
-    <div class="page_cover_01">
-        <div class="page_cover_01__content">
+<ColumnScaffolding 
+    ScaffoldingStyle="CssStyles" 
+    FirstColumnSettings="new ColumnSettings(ColumnWidth.col_6)">
+    <AdditionalContent>
+        <div class="page_cover_01">
             <TextBlock
                 TextField="@Title"
                 Size=@(TextBlock.SizeType.Large)
                 IsTitle="true"
                 FontFamily="evogria"
-                MarginBottom=@(WebSize.Px15) />
-            <TextBlock 
+                MarginBottom="15"
+                />
+            <TextBlock
                 TextField="@Subtitle"
                 Size=@(TextBlock.SizeType.Small)
                 IsTitle="true"
                 FontFamily="evogria"
-                MarginBottom=@(WebSize.Px30) />
-            <div class="page_cover_01__buttons">
-                <ButtonsInline Buttons="Buttons"/>
-            </div>
+                MarginBottom="30"
+            />
+            <ButtonsInline 
+                Buttons="@(Buttons)" 
+                HeightOfBlock="@(50)"
+                />
         </div>
-    </div>
-</LineScaffolding>
+    </AdditionalContent>
+    
+</ColumnScaffolding>
 
 
 @code {
     [Parameter] public WebText Title { get; set; } = "Title text";
     [Parameter] public WebText Subtitle { get; set; } = "Subtitle test";
     [Parameter] public List<WebButton> Buttons { get; set; } = new List<WebButton>();
-    
-    // public override WebSize? MarginBottom { get; set; } = WebSize.Zero;
-    // public override WebSize? MarginTop { get; set; } = WebSize.Zero;
 }

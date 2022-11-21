@@ -2,7 +2,7 @@
 @using ElementsLib.BaseElements
 @inherits WebButton
 
-<BlockScaffolding ScaffoldingStyle=@(CssStyles)>
+<BlockScaffolding CssStyles=@(CssStyles)>
     <a href="@RedirectLink" class="button_color" style=@($"background-color: {ColorOfButton}")>
         <TextBlock 
             TextField=@TextField 
@@ -16,18 +16,8 @@
     [Parameter] public WebText TextField { get; set; } = "None";
     [Parameter] public DesignType Type { get; set; } = DesignType.Black;
     
-    [Parameter] public override string? RedirectLink { get; set; } = "/";
-    [Parameter] public override Action? OnClick { get; set; }
-
-    public override Dictionary<string, object> GetValuesDictionary()
-    {
-        var oldDictionary = base.GetValuesDictionary();
-        oldDictionary.TryAdd("TextField", TextField);
-        oldDictionary.TryAdd("RedirectLink", RedirectLink);
-        oldDictionary.TryAdd("OnClick", OnClick);
-        oldDictionary.TryAdd("Type", Type);
-        return oldDictionary;
-    }
+    // [Parameter] public override string? RedirectLink { get; set; } = "/";
+    // [Parameter] public override Action? OnClick { get; set; }
 
     protected override void OnParametersSet()
     {
@@ -52,8 +42,18 @@
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        HeightOfBlock ??= 55;
         base.OnParametersSet();
-        StateHasChanged();
+    }
+    
+    public override Dictionary<string, object> GetValuesDictionary()
+    {
+        var oldDictionary = base.GetValuesDictionary();
+        oldDictionary.TryAdd("TextField", TextField);
+        oldDictionary.TryAdd("RedirectLink", RedirectLink);
+        oldDictionary.TryAdd("OnClick", OnClick);
+        oldDictionary.TryAdd("Type", Type);
+        return oldDictionary;
     }
 
     private void ButtonClick()

@@ -1,7 +1,10 @@
 @using ElementsLib.Models
+@using ElementsLib.BaseElements
 @inherits ComponentBaseWithStyles
 
-<BlockScaffolding ScaffoldingStyle="CssStyles">
+<BlockScaffolding 
+    CssStyles="CssStyles" 
+    HeightOfBlock="@(IsFullHeight ? new WebSizePercent(100) : null)">
     <div class="text_block @(IsTitle ? "title" : "text")">
         <Dynamic Tag="@(HtmlTag)" Styles="@TextField.Styles">
             <div class="@GetAdditionalClasses()">
@@ -12,8 +15,8 @@
 </BlockScaffolding>
 
 
-
 @code {
+    [Parameter] public bool IsFullHeight { get; set; }
     [Parameter] public WebText TextField { get; set; } = "Text field";
     [Parameter] public bool IsTitle { get; set; }
     [Parameter] public WebAlign Align { get; set; } = WebAlignType.Left;
@@ -23,8 +26,8 @@
 
     protected override void OnParametersSet()
     {
-        if (LineHeight == null) CssStyles.LineHeight = IsTitle ? 1.2f : 1.55f;
         base.OnParametersSet();
+        if (FontLineHeight == null) CssStyles.FontLineHeight = IsTitle ? 1.2f : 1.55f;
     }
 
     private string GetAdditionalClasses()
